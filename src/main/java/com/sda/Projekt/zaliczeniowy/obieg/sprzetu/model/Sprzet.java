@@ -39,4 +39,5 @@ public class Sprzet {
     public void setKategoriaSprzetu(String kategoriaSprzetu) {
         this.kategoriaSprzetu = kategoriaSprzetu;
     }
+
 }

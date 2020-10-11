@@ -3,7 +3,8 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+// slowo user zastrdzezone w mssql - slowo klucz - zmieniamy nazwe bazy na inna
+@Entity(name = "users")
 public class User {
 
     @Id
