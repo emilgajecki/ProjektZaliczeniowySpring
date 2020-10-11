@@ -26,7 +26,7 @@ public class SprzetController {
     //odpowiada za przekazywanie parametrow
     public String dodajSprzet(@RequestBody Sprzet sprzet){
         reposiotory.save(sprzet);
-        return "Dodałem cytat " + sprzet.getNazwaSprzetu();
+        return "Dodałem sprzet " + sprzet.getNazwaSprzetu();
     }
 
     //usuwanie danego wpisu w baze
@@ -37,7 +37,7 @@ public class SprzetController {
     }
 
     //sposób na wywołanie metody zaraz po kontrolerze.
-    @PostConstruct
+    //@PostConstruct
     public void dodajKilkaSprzetow(){
         Sprzet sprzet1 = new Sprzet("DELL","Laptop");
         Sprzet sprzet2 = new Sprzet("HP","Monitor");
