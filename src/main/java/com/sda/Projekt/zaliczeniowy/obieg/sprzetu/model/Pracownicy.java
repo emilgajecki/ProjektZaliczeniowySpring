@@ -13,16 +13,16 @@ public class Pracownicy {
     private long id;
     private String name;
     private String lastName;
-    private String role;
+    private int idRole;
 
     public Pracownicy(){
 
     }
 
-    public Pracownicy(String name, String lastName, String role) {
+    public Pracownicy(String name, String lastName, int idRole) {
         this.name = name;
         this.lastName = lastName;
-        this.role = role;
+        this.idRole = idRole;
     }
 
     public String getName() {
@@ -41,11 +41,11 @@ public class Pracownicy {
         this.lastName = lastName;
     }
 
-    public String getRole() {
-        return role;
+    public int getIdRole() {
+        return idRole;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setIdRole(int role) {
+        this.idRole = role;
     }
 }

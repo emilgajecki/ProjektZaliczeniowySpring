@@ -33,9 +33,9 @@ public class PracownicyController {
 
     //@PostConstruct
     public void dodajKilkuPracownikow(){
-        Pracownicy pracownik1 = new Pracownicy("Emil","Gajęcki","ADMIN");
-        Pracownicy pracownik2 = new Pracownicy("Przemyslaw","Zacheja","USER");
-        Pracownicy pracownik3 = new Pracownicy("Tomasz","Prażniewski","USER");
+        Pracownicy pracownik1 = new Pracownicy("Emil","Gajęcki",1);
+        Pracownicy pracownik2 = new Pracownicy("Przemyslaw","Zacheja",2);
+        Pracownicy pracownik3 = new Pracownicy("Tomasz","Prażniewski",2);
         reposiotory.save(pracownik1);
         reposiotory.save(pracownik2);
         reposiotory.save(pracownik3);
