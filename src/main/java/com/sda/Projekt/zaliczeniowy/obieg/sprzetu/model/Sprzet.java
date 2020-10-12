@@ -12,15 +12,15 @@ public class Sprzet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nazwaSprzetu;
-    private String kategoriaSprzetu;
+    private int typUrzadzenia;
 
     public Sprzet(){
 
     }
 
-    public Sprzet(String nazwaSprzetu, String kategoriaSprzetu) {
+    public Sprzet(String nazwaSprzetu, int typSptzetu) {
         this.nazwaSprzetu = nazwaSprzetu;
-        this.kategoriaSprzetu = kategoriaSprzetu;
+        this.typUrzadzenia = typSptzetu;
     }
 
     public String getNazwaSprzetu() {
@@ -31,12 +31,11 @@ public class Sprzet {
         this.nazwaSprzetu = nazwaSprzetu;
     }
 
-    public String getKategoriaSprzetu() {
-        return kategoriaSprzetu;
+    public int getTypUrzadzenia() {
+        return typUrzadzenia;
     }
 
-    public void setKategoriaSprzetu(String kategoriaSprzetu) {
-        this.kategoriaSprzetu = kategoriaSprzetu;
+    public void setTypUrzadzenia(int typSptzetu) {
+        this.typUrzadzenia = typSptzetu;
     }
-
 }

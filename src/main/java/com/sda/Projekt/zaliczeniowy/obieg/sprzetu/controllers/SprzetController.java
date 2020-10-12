@@ -38,8 +38,8 @@ public class SprzetController {
     //sposób na wywołanie metody zaraz po kontrolerze.
     //@PostConstruct
     public void dodajKilkaSprzetow(){
-        Sprzet sprzet1 = new Sprzet("DELL","Laptop");
-        Sprzet sprzet2 = new Sprzet("HP","Monitor");
+        Sprzet sprzet1 = new Sprzet("DELL",1);
+        Sprzet sprzet2 = new Sprzet("HP",2);
         reposiotory.save(sprzet1);
         reposiotory.save(sprzet2);
     }
