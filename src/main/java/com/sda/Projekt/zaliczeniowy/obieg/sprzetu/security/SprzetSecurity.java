@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
-
 //konfiguracja
 @Configuration
 public class SprzetSecurity extends WebSecurityConfigurerAdapter {
@@ -20,9 +19,9 @@ public class SprzetSecurity extends WebSecurityConfigurerAdapter {
             http.httpBasic()
                     .and()
                     .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/sprzet").hasAnyRole("USER,ADMIN")
-                    .antMatchers(HttpMethod.POST, "/sprzet").hasRole("USER")
-                    .antMatchers(HttpMethod.DELETE, "/sprzet").hasRole("ADMIN")
+                    .antMatchers(HttpMethod.GET, "/sprzet","/pracownicy","/sprzet").hasAnyRole("USER,ADMIN")
+                    .antMatchers(HttpMethod.POST, "/sprzet","/pracownicy","/sprzet").hasRole("USER")
+                    .antMatchers(HttpMethod.DELETE, "/sprzet","/pracownicy","/sprzet").hasRole("ADMIN")
                     .and()
                     .formLogin().permitAll()
                     .and()

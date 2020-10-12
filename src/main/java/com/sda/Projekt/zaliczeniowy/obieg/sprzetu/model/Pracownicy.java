@@ -9,34 +9,43 @@ import javax.persistence.Id;
 public class Pracownicy {
 
     @Id
-    //nie będzie powielało id.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String imiePracownika;
-    private String nazwiskoPracownika;
+    private String name;
+    private String lastName;
+    private String role;
 
     public Pracownicy(){
 
     }
 
-    public Pracownicy(String imiePracownika, String nazwiskoPracownika) {
-        this.imiePracownika = imiePracownika;
-        this.nazwiskoPracownika = nazwiskoPracownika;
+    public Pracownicy(String name, String lastName, String role) {
+        this.name = name;
+        this.lastName = lastName;
+        this.role = role;
     }
 
-    public String getImiePracownika() {
-        return imiePracownika;
+    public String getName() {
+        return name;
     }
 
-    public void setImiePracownika(String imiePracownika) {
-        this.imiePracownika = imiePracownika;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNazwiskoPracownika() {
-        return nazwiskoPracownika;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setNazwiskoPracownika(String nazwiskoPracownika) {
-        this.nazwiskoPracownika = nazwiskoPracownika;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

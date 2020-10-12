@@ -9,7 +9,6 @@ import javax.persistence.Id;
 public class Sprzet {
 
     @Id
-    //nie będzie powielało id.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nazwaSprzetu;

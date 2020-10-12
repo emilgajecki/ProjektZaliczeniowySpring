@@ -5,7 +5,6 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.SprzetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -41,7 +40,6 @@ public class SprzetController {
     public void dodajKilkaSprzetow(){
         Sprzet sprzet1 = new Sprzet("DELL","Laptop");
         Sprzet sprzet2 = new Sprzet("HP","Monitor");
-
         reposiotory.save(sprzet1);
         reposiotory.save(sprzet2);
     }
