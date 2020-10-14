@@ -19,6 +19,8 @@ public class WydanieController {
         return repository.findAll();
     }
 
+
+
     @PostMapping("/wydanie")
     public void wydanieSprzętu (@RequestBody Wydanie wydnaie){
         repository.save(wydnaie);
@@ -30,7 +32,7 @@ public class WydanieController {
         return "usunieto rekord "+id;
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void dodajKilkaWydan(){
         Wydanie wydanie1 = new Wydanie(1,2);
         Wydanie wydanie2 = new Wydanie (2,2);
