@@ -4,26 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Pracownicy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Dodaj nowego pracownika</h1>
-
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4"><center>Dodaj nowego pracownika</center></h1>
+            <p class="lead"><center>ewentualny opis</center></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Doaj pracownika</h3>
     <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
+                    <div class="form-group">
+                        <label for="name">Podaj imie</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
 
-        <div>
-            <input type="text" name="name" id="name" placeholder="Podaj imie" />
-        </div>
+                    <div class="form-group">
+                        <label for="lastName" >Podaj Nazwisko</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName">
+                    </div>
 
-        <div>
-            <input type="text" name="lastName" id="lastName" placeholder="Podaj Nazwisko" />
-        </div>
+                    <div class="form-group">
+                        <label for="pracIdRole" >podaj role (1.ADMIN, 2.USER)</label>
+                        <input class="form-control" type="number" name="pracIdRole" id="pracIdRole">
+                    </div>
 
-        <div>
-            <input type="number" name="pracIdRole" id="pracIdRole" placeholder="podaj role (1.ADMIN, 2.USER)" />
-        </div>
+                    <div class="form-group">
+                        <input type="submit" value="Dodaj pracownika" />
+                    </div>
 
-        <input type="submit" value="Dodaj pracownika" />
 
-    </form>
+
+                </form>
+            </div>
 </body>
 </html>
