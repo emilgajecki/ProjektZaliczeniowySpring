@@ -1,5 +1,6 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper;
 
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracowinicyListItemDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
 
@@ -19,7 +20,6 @@ public class PracownicyMapper {
             dto.setId(entity.getId());
             dto.setName(entity.getName());
             dto.setLastName(entity.getLastName());
-            dto.setPracIdRole(entity.getPracIdRole());
 
             result.add(dto);
         }
@@ -27,13 +27,32 @@ public class PracownicyMapper {
         return result;
     }
 
+    public static List<PracowinicyListItemDto> mapEntityToListItemDto(Iterable<PracownicyEntity> pracownicyEntities) {
+
+        List<PracowinicyListItemDto> result = new ArrayList<>();
+
+        for (PracownicyEntity entity : pracownicyEntities) {
+
+            PracowinicyListItemDto dto = new PracowinicyListItemDto();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setLastName(entity.getLastName());
+            dto.setRolaPracownika(entity.getPracIdRole().getRole());
+
+            result.add(dto);
+        }
+
+        return result;
+    }
+
+
+
     public static PracownicyEntity mapDtoToEntity(PracownicyDto dto) throws ParseException {
 
         PracownicyEntity entity = new PracownicyEntity();
         entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity.setLastName(dto.getLastName());
-        entity.setPracIdRole(dto.getPracIdRole());
 
         return entity;
     }

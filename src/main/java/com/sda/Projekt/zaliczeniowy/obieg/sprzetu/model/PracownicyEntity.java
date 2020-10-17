@@ -1,9 +1,6 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "pracownicy")
 public class PracownicyEntity {
@@ -13,16 +10,24 @@ public class PracownicyEntity {
     private long id;
     private String name;
     private String lastName;
-    private int pracIdRole;
+
+    @ManyToOne()
+    @JoinColumn(name = "rolaID")
+    private RolaPracownika pracIdRole;
+
+
 
     public PracownicyEntity(){
 
     }
 
-    public PracownicyEntity(String name, String lastName, int idRole) {
+    public PracownicyEntity(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
-        this.pracIdRole = idRole;
+    }
+
+    public void setPracIdRole(RolaPracownika pracIdRole) {
+        this.pracIdRole = pracIdRole;
     }
 
     public long getId() {
@@ -49,11 +54,7 @@ public class PracownicyEntity {
         this.lastName = lastName;
     }
 
-    public int getPracIdRole() {
+    public RolaPracownika getPracIdRole() {
         return pracIdRole;
-    }
-
-    public void setPracIdRole(int pracIdRole) {
-        this.pracIdRole = pracIdRole;
     }
 }

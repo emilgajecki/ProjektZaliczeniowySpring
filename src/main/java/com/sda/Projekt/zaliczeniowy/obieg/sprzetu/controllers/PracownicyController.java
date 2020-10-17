@@ -34,15 +34,15 @@ public class PracownicyController {
         return "/newUser";
     }
 
-   @RequestMapping(value = "/pracownicy/add", method = RequestMethod.POST)
-   public String dodajPracownika(@ModelAttribute("pracownicy") @Validated PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
+    @RequestMapping(value = "/pracownicy/add", method = RequestMethod.POST)
+    public String dodajPracownika(@ModelAttribute("pracownicy") @Validated PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/newUser";
-       }
+        }
+        pracownicyService.save(pracownicyDto);
 
-       pracownicyService.save(pracownicyDto);
 
-       return "redirect:/pracownicyList";
-   }
+            return "redirect:/pracownicyList";
+    }
 }

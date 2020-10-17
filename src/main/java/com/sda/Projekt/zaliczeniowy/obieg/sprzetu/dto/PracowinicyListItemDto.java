@@ -1,11 +1,11 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto;
 
-public class PracownicyDto {
+public class PracowinicyListItemDto {
 
     private long id;
     private String name;
     private String lastName;
-    private long pracIdRole;
+    private String rolaPracownika;
 
     public long getId() {
         return id;
@@ -31,11 +31,11 @@ public class PracownicyDto {
         this.lastName = lastName;
     }
 
-    public long getPracIdRole() {
-        return pracIdRole;
+    public String getRolaPracownika() {
+        return rolaPracownika;
     }
 
-    public void setPracIdRole(long pracIdRole) {
-        this.pracIdRole = pracIdRole;
+    public void setRolaPracownika(String rolaPracownika) {
+        this.rolaPracownika = rolaPracownika;
     }
 }

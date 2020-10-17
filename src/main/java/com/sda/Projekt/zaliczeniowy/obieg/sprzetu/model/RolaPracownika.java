@@ -1,9 +1,7 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class RolaPracownika {
@@ -12,6 +10,25 @@ public class RolaPracownika {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idRole;
     private String role;
+
+    @OneToMany(mappedBy = "pracIdRole")
+    private List<PracownicyEntity> pracownicy;
+
+    public long getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(long idRole) {
+        this.idRole = idRole;
+    }
+
+    public List<PracownicyEntity> getPracownicy() {
+        return pracownicy;
+    }
+
+    public void setPracownicy(List<PracownicyEntity> pracownicy) {
+        this.pracownicy = pracownicy;
+    }
 
     public RolaPracownika(){
 

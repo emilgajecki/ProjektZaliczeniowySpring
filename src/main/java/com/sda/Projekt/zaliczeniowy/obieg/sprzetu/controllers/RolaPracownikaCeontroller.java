@@ -32,7 +32,6 @@ public class RolaPracownikaCeontroller {
         repository.deleteById(id);
         return "usunieto rekord "+id;
     }
-
     //@PostConstruct
     public void dodajRolePracownika(){
         RolaPracownika rola1 = new RolaPracownika("ADMIN");
