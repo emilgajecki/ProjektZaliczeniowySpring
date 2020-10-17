@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pracownicy</title>
+</head>
+<body>
+    <h1>Dodaj nowego pracownika</h1>
+
+    <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
+
+        <div>
+            <input type="text" name="name" id="name" placeholder="Podaj imie" />
+        </div>
+
+        <div>
+            <input type="text" name="lastName" id="lastName" placeholder="Podaj Nazwisko" />
+        </div>
+
+        <div>
+            <input type="number" name="pracIdRole" id="pracIdRole" placeholder="podaj role (1.ADMIN, 2.USER)" />
+        </div>
+
+        <input type="submit" value="Dodaj pracownika" />
+
+    </form>
+</body>
+</html>

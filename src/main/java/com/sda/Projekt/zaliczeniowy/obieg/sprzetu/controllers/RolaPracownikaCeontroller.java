@@ -1,6 +1,7 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownika;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 public class RolaPracownikaCeontroller {
+
 
     @Autowired
     RolaPracownikaRepository repository;

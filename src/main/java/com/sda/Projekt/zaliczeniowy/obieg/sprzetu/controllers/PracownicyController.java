@@ -1,51 +1,48 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.Pracownicy;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class PracownicyController {
 
     @Autowired
-    PracownicyRepository reposiotory;
+    PracownicyService pracownicyService;
 
-    @GetMapping("/pracownicy")
-    public List<Pracownicy> wszyscyPracownicy(){
-        return reposiotory.findAll();
+    @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
+    public String pracownicyList(Model model) {
+
+        model.addAttribute("pracownicyList", pracownicyService.getll());
+
+        return "/pracownicyList";
     }
 
+    @RequestMapping(value = "/pracownicy/add", method = RequestMethod.GET)
+    public String dodajPracownika(Model model) {
 
-//    @PostMapping("/pracownicy/")
-//    public String dodajPracownika(@RequestBody Pracownicy pracownicy){
-//        reposiotory.save(pracownicy);
-//        return "Dodałem praconika " + pracownicy.getName()+ " "+pracownicy.getLastName();
-//    }
+        model.addAttribute("pracownicy", new PracownicyDto());
 
-
-    @GetMapping("/add-user")
-    public String createUserForm(){
-        return "newuser";
+        return "/newUser";
     }
 
-    @DeleteMapping("/pracownicy")
-    public String usunPracownika(long id){
-        reposiotory.deleteById(id);
-        return "usunięto rekord "+id;
-    }
+   @RequestMapping(value = "/pracownicy/add", method = RequestMethod.POST)
+   public String dodajPracownika(@ModelAttribute("pracownicy") @Validated PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
 
-    //@PostConstruct
-    public void dodajKilkuPracownikow(){
-        Pracownicy pracownik1 = new Pracownicy("Emil","Gajęcki",1);
-        Pracownicy pracownik2 = new Pracownicy("Przemyslaw","Zacheja",2);
-        Pracownicy pracownik3 = new Pracownicy("Tomasz","Prażniewski",2);
-        reposiotory.save(pracownik1);
-        reposiotory.save(pracownik2);
-        reposiotory.save(pracownik3);
-    }
+        if (bindingResult.hasErrors()) {
+            return "/newUser";
+       }
+
+       pracownicyService.save(pracownicyDto);
+
+       return "redirect:/pracownicyList";
+   }
 }

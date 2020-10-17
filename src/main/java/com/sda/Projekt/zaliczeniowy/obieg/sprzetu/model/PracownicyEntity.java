@@ -5,8 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-public class Pracownicy {
+@Entity(name = "pracownicy")
+public class PracownicyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,14 +15,22 @@ public class Pracownicy {
     private String lastName;
     private int pracIdRole;
 
-    public Pracownicy(){
+    public PracownicyEntity(){
 
     }
 
-    public Pracownicy(String name, String lastName, int idRole) {
+    public PracownicyEntity(String name, String lastName, int idRole) {
         this.name = name;
         this.lastName = lastName;
         this.pracIdRole = idRole;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -45,7 +53,7 @@ public class Pracownicy {
         return pracIdRole;
     }
 
-    public void setPracIdRole(int role) {
-        this.pracIdRole = role;
+    public void setPracIdRole(int pracIdRole) {
+        this.pracIdRole = pracIdRole;
     }
 }
