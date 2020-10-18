@@ -10,23 +10,6 @@ import java.util.List;
 
 public class PracownicyMapper {
 
-    public static List<PracownicyDto> mapEntityToDto(Iterable<PracownicyEntity> pracownicyEntities) {
-
-        List<PracownicyDto> result = new ArrayList<>();
-
-        for (PracownicyEntity entity : pracownicyEntities) {
-
-            PracownicyDto dto = new PracownicyDto();
-            dto.setId(entity.getId());
-            dto.setName(entity.getName());
-            dto.setLastName(entity.getLastName());
-
-            result.add(dto);
-        }
-
-        return result;
-    }
-
     public static List<PracowinicyListItemDto> mapEntityToListItemDto(Iterable<PracownicyEntity> pracownicyEntities) {
 
         List<PracowinicyListItemDto> result = new ArrayList<>();
@@ -45,8 +28,6 @@ public class PracownicyMapper {
 
         return result;
     }
-
-
 
     public static PracownicyEntity mapDtoToEntity(PracownicyDto dto) throws ParseException {
 

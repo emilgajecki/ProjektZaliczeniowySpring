@@ -1,46 +1,46 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.Sprzet;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.SprzetRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.SprzetDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.SprzetService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
-
-@RestController
+@Controller
 public class SprzetController {
 
-    //do pola repozytorium wstrzyknie bean/obiekt istniejace repozytorium
     @Autowired
-    SprzetRepository reposiotory;
+    private SprzetService sprzetService;
 
-    // pobieranie danych z bazy
-    @GetMapping("/sprzet")
-    public List<Sprzet> calySprzet(){
-        return reposiotory.findAll();
+    @RequestMapping(value = "/sprzetList", method = RequestMethod.GET)
+    public String sprzetList(Model model) {
+
+        model.addAttribute("sprzetList", sprzetService.getall());
+
+        return "/sprzetList";
     }
 
-    //odpowiada za wprowadzenie danych - np wprowadzanie danych z formularza
-    @PostMapping("/sprzet")
-    //odpowiada za przekazywanie parametrow
-    public String dodajSprzet(@RequestBody Sprzet sprzet){
-        reposiotory.save(sprzet);
-        return "Dodałem sprzet " + sprzet.getNazwaSprzetu();
+    @RequestMapping(value = "/sprzet/add", method = RequestMethod.GET)
+    public String dodajSprzet(Model model) {
+
+        model.addAttribute("sprzet", new SprzetDto());
+
+        return "/newDevice";
     }
 
-    //usuwanie danego wpisu w baze
-    @DeleteMapping("/sprzet")
-    public String usunSprzet(long id){
-        reposiotory.deleteById(id);
-        return "usunięto rekord "+id;
+    @RequestMapping(value = "/sprzet/add", method = RequestMethod.POST)
+    public String dodajSprzet(@ModelAttribute("sprzet") @Validated SprzetDto sprzetDto, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return "/newDevice";
+        }
+        sprzetService.save(sprzetDto);
+        return "redirect:/sprzetList";
     }
 
-    //sposób na wywołanie metody zaraz po kontrolerze.
-    //@PostConstruct
-    public void dodajKilkaSprzetow(){
-        Sprzet sprzet1 = new Sprzet("DELL",1);
-        Sprzet sprzet2 = new Sprzet("HP",2);
-        reposiotory.save(sprzet1);
-        reposiotory.save(sprzet2);
-    }
 }

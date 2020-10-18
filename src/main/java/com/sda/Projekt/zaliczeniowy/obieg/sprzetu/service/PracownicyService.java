@@ -27,9 +27,8 @@ public class PracownicyService {
     @Autowired
     private DzialyRepository dzialyRepository;
 
-    @Autowired
 
-    public List<PracowinicyListItemDto> getll() {
+    public List<PracowinicyListItemDto> getall() {
 
         Iterable<PracownicyEntity> pracownicy = pracownicyRepository.findAll();
         List<PracowinicyListItemDto> dtos = PracownicyMapper.mapEntityToListItemDto(pracownicy);

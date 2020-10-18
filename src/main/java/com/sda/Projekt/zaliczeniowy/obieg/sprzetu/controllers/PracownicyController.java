@@ -1,16 +1,15 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class PracownicyController {
@@ -21,7 +20,7 @@ public class PracownicyController {
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
     public String pracownicyList(Model model) {
 
-        model.addAttribute("pracownicyList", pracownicyService.getll());
+        model.addAttribute("pracownicyList", pracownicyService.getall());
 
         return "/pracownicyList";
     }

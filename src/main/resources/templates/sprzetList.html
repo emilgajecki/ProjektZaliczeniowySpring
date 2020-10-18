@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Wszyscy pracownicy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">
+                <center>Lista sprzetu</center>
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <a href="/pracownicy/add">Dodaj pracownika</a>
+        </li>
+        <li>
+            <a href="/pracownicyList">Pokaż pracowników</a>
+        </li>
+        <li>
+            <a href="sprzet/add">Dodaj sprzęt</a>
+        </li>
+        <li>
+            <a href="sprzetList">Pokaż sprzęt</a>
+        </li>
+    </ul>
+
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+            <th class="name">
+                producent
+            </th>
+            <th class="name">
+                model
+            </th>
+            <th class="name">
+                serial
+            </th>
+            <th class="name">
+                typ urzadzenai
+            </th>
+            </thead>
+            <tr class="wartosc" th:each="sprzet : ${sprzetList}">
+
+                <td th:text="${sprzet.producent}"/>
+
+                <td th:text="${sprzet.model}"/>
+
+                <td th:text="${sprzet.serialNumber}"/>
+
+                <td th:text="${sprzet.typUrzadzenia}"/>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
