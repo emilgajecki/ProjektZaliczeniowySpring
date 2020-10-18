@@ -50,6 +50,9 @@
             <th class="name">
                 Dział Pracownika
             </th>
+            <th class="name">
+                Data utworzenia
+            </th>
             </thead>
             <tr class="wartosc" th:each="pracownicy : ${pracownicyList}">
 
@@ -60,6 +63,8 @@
                 <td th:text="${pracownicy.rolaPracownika}"/>
 
                 <td th:text="${pracownicy.dzialPracownika}"/>
+
+                <td th:text="${pracownicy.createDate}"/>
             </tr>
         </table>
     </div>

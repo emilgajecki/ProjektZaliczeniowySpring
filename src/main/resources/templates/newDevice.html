@@ -33,9 +33,9 @@
         </li>
     </ul>
 </div>
+<div class="container">
 <div class="row">
     <div class="col">
-        <table class="table">
         <form role="form" th:object="${sprzet}" th:action="@{/sprzet/add}" method="post">
             <div class="form-group">
                 <label for="producent">Podaj Producenta</label>
@@ -64,11 +64,7 @@
                 <input type="submit" value="Dodaj sprzet"/>
             </div>
         </form>
-        </table>
     </div>
-</div>
-</form>
-</div>
 </div>
 </div>
 </body>

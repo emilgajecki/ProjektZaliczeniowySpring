@@ -7,8 +7,15 @@ public class PracowinicyListItemDto {
     private String lastName;
     private String rolaPracownika;
     private String dzialPracownika;
+    private String createDate;
 
+    public String getCreateDate() {
+        return createDate;
+    }
 
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 
     public long getId() {
         return id;

@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>strona główna do przerobienia</title>
-    <meta name="description" content="opis">
-    <meta name="keywords" content="keywords">
-    <link rel="stylesheet" href="../s">
+    <title>Pracownicy</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<header>
-    <nav>
-        <a href="/pracownicyList">Pokaż wszystkich</a>
-        <a href="/pracownicy/add">Dodaj użytkownika do bazy</a>
-    </nav>
-</header>
-<main>
-    <div class="nav">
-        <ul>
-            <li>
-                <a href="/pracownicy/add">Dodaj pracownika</a>
-            </li>
-            <li>
-                <a href="/pracownicyList">Pokaż pracowników</a>
-            </li>
-            <li>
-                <a href="/sprzet/add">Dodaj sprzęt</a>
-            </li>
-            <li>
-                <a href="/sprzetList">Pokaż sprzęt</a>
-            </li>
-        </ul>
-
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4">
+            <center>Strona główna</center>
+        </h1>
     </div>
+</div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <a href="/pracownicy/add">Dodaj pracownika</a>
+        </li>
+        <li>
+            <a href="/pracownicyList">Pokaż pracowników</a>
+        </li>
+        <li>
+            <a href="/sprzet/add">Dodaj sprzęt</a>
+        </li>
+        <li>
+            <a href="/sprzetList">Pokaż sprzęt</a>
+        </li>
+    </ul>
+
+</div>
     <article>
-        <H1>O stronie</H1>
-        <p>Strona z podstawowymi informacjami na temat technologi front-endu.</p>
+        <center><H1>O stronie</H1>
+            <p>Strona z podstawowymi informacjami na temat technologi front-endu.</p>
+        </center>
     </article>
 </main>
 <footer>

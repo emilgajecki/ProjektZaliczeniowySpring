@@ -7,6 +7,15 @@ public class SprzetListItemDto {
     private String model;
     private String typUrzadzenia;
     private String serialNumber;
+    private String createDate;
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 
     public long getId() {
         return id;

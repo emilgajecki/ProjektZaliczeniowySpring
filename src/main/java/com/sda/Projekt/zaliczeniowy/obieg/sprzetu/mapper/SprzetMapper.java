@@ -5,10 +5,13 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.SprzetListItemDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.SprzetEntity;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SprzetMapper {
+
+    public static String DATE_FORMAT = "dd-MM-yyyy";
 
     public static List<SprzetListItemDto> mapEntityToListItemDto(Iterable<SprzetEntity> sprzetEntities) {
 
@@ -22,6 +25,7 @@ public class SprzetMapper {
             dto.setModel(entity.getModel());
             dto.setSerialNumber(entity.getSerialNumber());
             dto.setTypUrzadzenia(entity.getSprzetIdTyp().getTypUrządzenia());
+            dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
 
             result.add(dto);
         }
@@ -36,7 +40,7 @@ public class SprzetMapper {
         entity.setProducent(dto.getProducent());
         entity.setModel(dto.getModel());
         entity.setSerialNumber(dto.getSerialNumber());
-
+        entity.setCreateDate(new SimpleDateFormat(DATE_FORMAT).parse(dto.getCreateDate()));
 
         return entity;
     }

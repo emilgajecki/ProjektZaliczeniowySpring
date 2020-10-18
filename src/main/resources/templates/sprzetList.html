@@ -50,6 +50,9 @@
             <th class="name">
                 typ urzadzenai
             </th>
+            <th class="name">
+                Data utworzenia
+            </th>
             </thead>
             <tr class="wartosc" th:each="sprzet : ${sprzetList}">
 
@@ -60,6 +63,8 @@
                 <td th:text="${sprzet.serialNumber}"/>
 
                 <td th:text="${sprzet.typUrzadzenia}"/>
+
+                <td th:text="${sprzet.createDate}"/>
             </tr>
         </table>
     </div>

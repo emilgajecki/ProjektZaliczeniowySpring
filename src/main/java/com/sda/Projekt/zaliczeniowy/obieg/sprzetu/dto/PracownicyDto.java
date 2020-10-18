@@ -7,6 +7,15 @@ public class PracownicyDto {
     private String lastName;
     private long pracIdRole;
     private long pracIdDepartment;
+    private String createDate;
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
 
     public long getId() {
         return id;
@@ -47,4 +56,6 @@ public class PracownicyDto {
     public void setPracIdDepartment(long pracIdDepartment) {
         this.pracIdDepartment = pracIdDepartment;
     }
+
+
 }

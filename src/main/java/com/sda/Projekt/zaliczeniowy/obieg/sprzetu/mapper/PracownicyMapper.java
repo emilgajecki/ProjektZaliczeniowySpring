@@ -5,10 +5,13 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PracownicyMapper {
+
+    public static String DATE_FORMAT = "dd-MM-yyyy";
 
     public static List<PracowinicyListItemDto> mapEntityToListItemDto(Iterable<PracownicyEntity> pracownicyEntities) {
 
@@ -22,6 +25,7 @@ public class PracownicyMapper {
             dto.setLastName(entity.getLastName());
             dto.setRolaPracownika(entity.getPracIdRole().getRole());
             dto.setDzialPracownika(entity.getPracIdDepartment().getNameDepartment());
+            dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
 
             result.add(dto);
         }
@@ -35,6 +39,7 @@ public class PracownicyMapper {
         entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity.setLastName(dto.getLastName());
+        entity.setCreateDate(new SimpleDateFormat(DATE_FORMAT).parse(dto.getCreateDate()));
 
         return entity;
     }

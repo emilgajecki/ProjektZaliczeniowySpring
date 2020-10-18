@@ -1,5 +1,8 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
+
 import javax.persistence.*;
+import java.util.Date;
+
 @Entity(name = "pracownicy")
 public class PracownicyEntity {
     @Id
@@ -15,6 +18,17 @@ public class PracownicyEntity {
     @ManyToOne()
     @JoinColumn(name = "deprtmentID")
     private  DzialyEntity pracIdDepartment;
+
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     public PracownicyEntity(){
     }

@@ -18,52 +18,49 @@
         </div>
     </div>
 </div>
-    <div class="nav">
-        <ul>
-            <li>
-                <a href="/pracownicy/add">Dodaj pracownika</a>
-            </li>
-            <li>
-                <a href="/pracownicyList">Pokaż pracowników</a>
-            </li>
-            <li>
-                <a href="/sprzet/add">Dodaj sprzęt</a>
-            </li>
-            <li>
-                <a href="/sprzetList">Pokaż sprzęt</a>
-            </li>
-        </ul>
+<div class="nav">
+    <ul>
+        <li>
+            <a href="/pracownicy/add">Dodaj pracownika</a>
+        </li>
+        <li>
+            <a href="/pracownicyList">Pokaż pracowników</a>
+        </li>
+        <li>
+            <a href="/sprzet/add">Dodaj sprzęt</a>
+        </li>
+        <li>
+            <a href="/sprzetList">Pokaż sprzęt</a>
+        </li>
+    </ul>
+</div>
+<div class="container">
+<div class="row">
+    <div class="col">
+        <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
+            <div class="form-group">
+                <label for="name">Podaj imie</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
 
-    </div>
-    <div class="row">
-        <div class="col">
-            <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
-                <div class="form-group">
-                    <label for="name">Podaj imie</label>
-                    <input class="form-control" type="text" name="name" id="name">
-                </div>
+            <div class="form-group">
+                <label for="lastName">Podaj Nazwisko</label>
+                <input class="form-control" type="text" name="lastName" id="lastName">
+            </div>
 
-                <div class="form-group">
-                    <label for="lastName">Podaj Nazwisko</label>
-                    <input class="form-control" type="text" name="lastName" id="lastName">
-                </div>
+            <div class="form-group">
+                <label for="pracIdRole">podaj role (1.ADMIN, 2.USER)</label>
+                <input class="form-control" type="number" name="pracIdRole" id="pracIdRole">
+            </div>
 
-                <div class="form-group">
-                    <label for="pracIdRole">podaj role (1.ADMIN, 2.USER)</label>
-                    <input class="form-control" type="number" name="pracIdRole" id="pracIdRole">
-                </div>
+            <div class="form-group">
+                <label for="pracIdDepartment">Podaj dział pracownika(1.IT, 2.Reszta)</label>
+                <input class="form-control" type="number" name="pracIdDepartment" id="pracIdDepartment">
+            </div>
 
-                <div class="form-group">
-                    <label for="pracIdDepartment">Podaj dział pracownika(1.IT, 2.Reszta)</label>
-                    <input class="form-control" type="number" name="pracIdDepartment" id="pracIdDepartment">
-                </div>
-
-                <div class="form-group">
-                    <input type="submit" value="Dodaj pracownika"/>
-                </div>
-            </form>
-        </div>
-    </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj pracownika"/>
+            </div>
         </form>
     </div>
 </div>
