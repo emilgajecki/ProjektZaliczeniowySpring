@@ -31,7 +31,7 @@ public class TypUrzadzenController {
         return "usunięto rekord "+id;
     }
 
-    //@PostConstruct
+    @PostConstruct
     public void dodajKilkaTypowSprzetu(){
         TypUrzadzenia urzadzenie1 = new TypUrzadzenia("laptop");
         TypUrzadzenia urzadzenie2 = new TypUrzadzenia("stacjonarka");

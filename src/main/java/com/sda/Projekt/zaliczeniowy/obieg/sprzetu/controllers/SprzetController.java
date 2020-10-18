@@ -37,7 +37,7 @@ public class SprzetController {
     }
 
     //sposób na wywołanie metody zaraz po kontrolerze.
-    //@PostConstruct
+    @PostConstruct
     public void dodajKilkaSprzetow(){
         Sprzet sprzet1 = new Sprzet("DELL",1);
         Sprzet sprzet2 = new Sprzet("HP",2);

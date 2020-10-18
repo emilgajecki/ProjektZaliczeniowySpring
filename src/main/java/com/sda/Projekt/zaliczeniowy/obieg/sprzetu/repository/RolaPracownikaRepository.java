@@ -1,12 +1,11 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownika;
-import org.hibernate.metamodel.model.convert.spi.JpaAttributeConverter;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RolaPracownikaRepository extends JpaRepository<RolaPracownika,Long> {
+public interface RolaPracownikaRepository extends JpaRepository<RolaPracownikaEntity,Long> {
 
-    RolaPracownika getByIdRole(long id);
+    RolaPracownikaEntity getByIdRole(long id);
 }

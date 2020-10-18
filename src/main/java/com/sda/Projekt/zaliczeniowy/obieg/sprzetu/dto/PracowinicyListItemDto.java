@@ -6,6 +6,9 @@ public class PracowinicyListItemDto {
     private String name;
     private String lastName;
     private String rolaPracownika;
+    private String dzialPracownika;
+
+
 
     public long getId() {
         return id;
@@ -37,5 +40,13 @@ public class PracowinicyListItemDto {
 
     public void setRolaPracownika(String rolaPracownika) {
         this.rolaPracownika = rolaPracownika;
+    }
+
+    public String getDzialPracownika() {
+        return dzialPracownika;
+    }
+
+    public void setDzialPracownika(String dzialPracownika) {
+        this.dzialPracownika = dzialPracownika;
     }
 }

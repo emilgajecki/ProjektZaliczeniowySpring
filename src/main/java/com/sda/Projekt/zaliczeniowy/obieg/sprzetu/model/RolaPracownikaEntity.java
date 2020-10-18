@@ -3,8 +3,8 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class RolaPracownika {
+@Entity(name = "rola_pracownika")
+public class RolaPracownikaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,11 +30,11 @@ public class RolaPracownika {
         this.pracownicy = pracownicy;
     }
 
-    public RolaPracownika(){
+    public RolaPracownikaEntity(){
 
     }
 
-    public RolaPracownika(String role) {
+    public RolaPracownikaEntity(String role) {
         this.role = role;
     }
 

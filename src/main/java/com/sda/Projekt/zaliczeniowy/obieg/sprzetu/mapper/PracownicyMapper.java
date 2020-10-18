@@ -38,6 +38,7 @@ public class PracownicyMapper {
             dto.setName(entity.getName());
             dto.setLastName(entity.getLastName());
             dto.setRolaPracownika(entity.getPracIdRole().getRole());
+            dto.setDzialPracownika(entity.getPracIdDepartment().getNameDepartment());
 
             result.add(dto);
         }

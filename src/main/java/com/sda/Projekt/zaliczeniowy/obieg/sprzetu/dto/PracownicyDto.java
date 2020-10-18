@@ -6,6 +6,7 @@ public class PracownicyDto {
     private String name;
     private String lastName;
     private long pracIdRole;
+    private long pracIdDepartment;
 
     public long getId() {
         return id;
@@ -37,5 +38,13 @@ public class PracownicyDto {
 
     public void setPracIdRole(long pracIdRole) {
         this.pracIdRole = pracIdRole;
+    }
+
+    public long getPracIdDepartment() {
+        return pracIdDepartment;
+    }
+
+    public void setPracIdDepartment(long pracIdDepartment) {
+        this.pracIdDepartment = pracIdDepartment;
     }
 }

@@ -3,8 +3,10 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracowinicyListItemDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownika;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,11 @@ public class PracownicyService {
     @Autowired
     private RolaPracownikaRepository rolaPracownikaRepository;
 
+    @Autowired
+    private DzialyRepository dzialyRepository;
+
+    @Autowired
+
     public List<PracowinicyListItemDto> getll() {
 
         Iterable<PracownicyEntity> pracownicy = pracownicyRepository.findAll();
@@ -34,8 +41,10 @@ public class PracownicyService {
 
         try {
             PracownicyEntity entity = PracownicyMapper.mapDtoToEntity(pracownicyDto);
-            RolaPracownika rolaPracownika = rolaPracownikaRepository.getByIdRole(pracownicyDto.getPracIdRole());
+            RolaPracownikaEntity rolaPracownika = rolaPracownikaRepository.getByIdRole(pracownicyDto.getPracIdRole());
+            DzialyEntity dzialyEntity = dzialyRepository.getIdDepartment(pracownicyDto.getPracIdDepartment());
             entity.setPracIdRole(rolaPracownika);
+            entity.setPracIdDepartment(dzialyEntity);
             pracownicyRepository.save(entity);
         } catch (ParseException e) {
             e.printStackTrace();

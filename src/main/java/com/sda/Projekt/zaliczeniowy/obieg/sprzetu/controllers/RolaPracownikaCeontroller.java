@@ -1,7 +1,6 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownika;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,14 +16,14 @@ public class RolaPracownikaCeontroller {
     RolaPracownikaRepository repository;
 
     @GetMapping("/rola")
-    public List<RolaPracownika> wszystkieRole(){
+    public List<RolaPracownikaEntity> wszystkieRole(){
         return repository.findAll();
     }
 
     @PostMapping("/rola")
-    public String rolaPracownika (@RequestBody RolaPracownika rolaPracownika){
+    public String rolaPracownika (@RequestBody RolaPracownikaEntity rolaPracownika){
         repository.save(rolaPracownika);
-        return "Dodano role praocenika " +rolaPracownika.getRole();
+        return "Dodano role pracownika " +rolaPracownika.getRole();
     }
 
     @DeleteMapping("/rola")
@@ -32,10 +31,10 @@ public class RolaPracownikaCeontroller {
         repository.deleteById(id);
         return "usunieto rekord "+id;
     }
-    //@PostConstruct
+    @PostConstruct
     public void dodajRolePracownika(){
-        RolaPracownika rola1 = new RolaPracownika("ADMIN");
-        RolaPracownika rola2 = new RolaPracownika("USER");
+        RolaPracownikaEntity rola1 = new RolaPracownikaEntity("ADMIN");
+        RolaPracownikaEntity rola2 = new RolaPracownikaEntity("USER");
         repository.save(rola1);
         repository.save(rola2);
     }

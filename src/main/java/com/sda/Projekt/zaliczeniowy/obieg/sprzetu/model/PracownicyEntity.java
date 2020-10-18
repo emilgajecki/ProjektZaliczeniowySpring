@@ -13,7 +13,11 @@ public class PracownicyEntity {
 
     @ManyToOne()
     @JoinColumn(name = "rolaID")
-    private RolaPracownika pracIdRole;
+    private RolaPracownikaEntity pracIdRole;
+
+    @ManyToOne()
+    @JoinColumn(name = "deprtmentID")
+    private  DzialyEntity pracIdDepartment;
 
 
 
@@ -26,9 +30,7 @@ public class PracownicyEntity {
         this.lastName = lastName;
     }
 
-    public void setPracIdRole(RolaPracownika pracIdRole) {
-        this.pracIdRole = pracIdRole;
-    }
+
 
     public long getId() {
         return id;
@@ -54,7 +56,19 @@ public class PracownicyEntity {
         this.lastName = lastName;
     }
 
-    public RolaPracownika getPracIdRole() {
+    public RolaPracownikaEntity getPracIdRole() {
         return pracIdRole;
+    }
+
+    public void setPracIdRole(RolaPracownikaEntity pracIdRole) {
+        this.pracIdRole = pracIdRole;
+    }
+
+    public DzialyEntity getPracIdDepartment() {
+        return pracIdDepartment;
+    }
+
+    public void setPracIdDepartment(DzialyEntity pracIdDeptmewnt) {
+        this.pracIdDepartment = pracIdDeptmewnt;
     }
 }
