@@ -3,21 +3,17 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class DzialyController {
 
     @Autowired
     DzialyRepository repository;
 
-    @GetMapping("/dzial")
+    @GetMapping("/dzialy")
     public List<DzialyEntity> wszystkieDialy(){
         return repository.findAll();
     }

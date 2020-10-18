@@ -6,60 +6,69 @@
     <title>Sprzet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <header>
-        <nav>
-            <a href="/pracownicyList">Pokaż wszystkich</a>
-            <a href="/pracownicy/add">Dodaj użytkownika do bazy</a>
-            <a href="/sprzetList">pokaz sprzet</a>
-            <a href="/sprzet/add">dodaj sprzet</a>
-
-        </nav>
-    </header>
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
-
 <body>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">
-                <center>Dodaj nowy sprzet</center>
-            </h1>
-        </div>
+        <h1 class="display-4">
+            <center>Dodaj nowy sprzet</center>
+        </h1>
     </div>
-    <div class="row">
-        <div class="col">
-            <form role="form" th:object="${sprzet}" th:action="@{/sprzet/add}" method="post">
-                <div class="form-group">
-                    <label for="producent">Podaj Producenta</label>
-                    <input class="form-control" type="text" name="producent" id="producent">
-                </div>
+</div>
+</div>
+<div class="nav">
+    <ul>
+        <li>
+            <a href="/pracownicy/add">Dodaj pracownika</a>
+        </li>
+        <li>
+            <a href="/pracownicyList">Pokaż pracowników</a>
+        </li>
+        <li>
+            <a href="/sprzet/add">Dodaj sprzęt</a>
+        </li>
+        <li>
+            <a href="/sprzetList">Pokaż sprzęt</a>
+        </li>
+    </ul>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table">
+        <form role="form" th:object="${sprzet}" th:action="@{/sprzet/add}" method="post">
+            <div class="form-group">
+                <label for="producent">Podaj Producenta</label>
+                <input class="form-control" type="text" name="producent" id="producent">
+            </div>
 
-                <div class="form-group">
-                    <label for="model">Podaj model</label>
-                    <input class="form-control" type="text" name="model" id="model">
-                </div>
+            <div class="form-group">
+                <label for="model">Podaj model</label>
+                <input class="form-control" type="text" name="model" id="model">
+            </div>
 
-                <div class="form-group">
-                    <label for="serialNumber">podaj sn</label>
-                    <input class="form-control" type="text" name="serialNumber" id="serialNumber">
-                </div>
+            <div class="form-group">
+                <label for="serialNumber">podaj sn</label>
+                <input class="form-control" type="text" name="serialNumber" id="serialNumber">
+            </div>
 
-                <div class="form-group">
-                    <label for="typUrzadzenia">Podaj typ urzadzenia(id	typ_urządzenia
-                        1	laptop
-                        2	stacjonarka
-                        3	drukarka)</label>
-                    <input class="form-control" type="number" name="typUrzadzenia" id="typUrzadzenia">
-                </div>
+            <div class="form-group">
+                <label for="typUrzadzenia">Podaj typ urzadzenia(id typ_urządzenia
+                    1 laptop
+                    2 stacjonarka
+                    3 drukarka)</label>
+                <input class="form-control" type="number" name="typUrzadzenia" id="typUrzadzenia">
+            </div>
 
-                <div class="form-group">
-                    <input type="submit" value="Dodaj sprzet"/>
-                </div>
-            </form>
-        </div>
-    </div>
+            <div class="form-group">
+                <input type="submit" value="Dodaj sprzet"/>
+            </div>
         </form>
+        </table>
     </div>
+</div>
+</form>
+</div>
 </div>
 </div>
 </body>
