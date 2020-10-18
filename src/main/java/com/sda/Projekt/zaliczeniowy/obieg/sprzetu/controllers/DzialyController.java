@@ -21,24 +21,24 @@ public class DzialyController {
     @Autowired
     private DzialyService dzialyService;
 
-    @RequestMapping(value = "/dzialyList", method = RequestMethod.GET)
+    @RequestMapping(value = "/dzialList", method = RequestMethod.GET)
     public String dzialyList(Model model) {
 
-        model.addAttribute("dzialyList", dzialyService.getall());
+        model.addAttribute("dzialList", dzialyService.getall());
 
-        return "/dzialyList";
+        return "/dzialList";
     }
 
-    @RequestMapping(value = "/dzialy/add", method = RequestMethod.GET)
-    public String dodajSprzet(Model model) {
+    @RequestMapping(value = "/dzial/add", method = RequestMethod.GET)
+    public String dodajDzial(Model model) {
 
         model.addAttribute("dzial", new DzialyDto());
 
         return "/newDzial";
     }
 
-    @RequestMapping(value = "/dzialy/add", method = RequestMethod.POST)
-    public String dodajSprzet(@ModelAttribute("dzial") @Validated DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
+    @RequestMapping(value = "/dzial/add", method = RequestMethod.POST)
+    public String dodajDzial(@ModelAttribute("dzial") @Validated DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/newDzial";
@@ -46,6 +46,6 @@ public class DzialyController {
         dzialyDto.setCreateDate(new SimpleDateFormat(PracownicyMapper.DATE_FORMAT).format(new Date()));
         dzialyService.save(dzialyDto);
 
-        return "redirect:/sprzetList";
+        return "redirect:/dzialList";
     }
 }

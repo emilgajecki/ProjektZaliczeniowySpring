@@ -22,6 +22,13 @@ public class PracownicyEntity {
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
+    public PracownicyEntity(){
+    }
+    public PracownicyEntity(String name, String lastName) {
+        this.name = name;
+        this.lastName = lastName;
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -30,12 +37,7 @@ public class PracownicyEntity {
         this.createDate = createDate;
     }
 
-    public PracownicyEntity(){
-    }
-    public PracownicyEntity(String name, String lastName) {
-        this.name = name;
-        this.lastName = lastName;
-    }
+
     public long getId() {
         return id;
     }

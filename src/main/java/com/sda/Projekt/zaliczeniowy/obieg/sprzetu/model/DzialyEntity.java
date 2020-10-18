@@ -18,6 +18,13 @@ public class DzialyEntity {
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
+    public DzialyEntity(){
+    }
+
+    public DzialyEntity(String nameDepartment) {
+        this.nameDepartment = nameDepartment;
+    }
+
     public Date getCreateDate() {
         return createDate;
     }
@@ -38,18 +45,8 @@ public class DzialyEntity {
         return pracownicy;
     }
 
-
     public void setPracownicy(List<PracownicyEntity> pracownicy) {
         this.pracownicy = pracownicy;
-    }
-
-
-    public DzialyEntity() {
-
-    }
-
-    public DzialyEntity(String nameDepartment) {
-        this.nameDepartment = nameDepartment;
     }
 
     public String getNameDepartment() {
