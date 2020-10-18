@@ -3,24 +3,24 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "dzialy")
 public class DzialyEntity {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idDepartment;
+    private long id;
     private String nameDepartment;
 
     @OneToMany(mappedBy = "pracIdDepartment")
     private List<PracownicyEntity> pracownicy;
 
-    public long getIdDepartment() {
-        return idDepartment;
+    public long getId() {
+        return id;
     }
 
-    public void setIdDepartment(long idDepartment) {
-        this.idDepartment = idDepartment;
+    public void setId(long idDepartment) {
+        this.id = idDepartment;
     }
 
     public List<PracownicyEntity> getPracownicy() {

@@ -1,7 +1,6 @@
 body{
     margin: 0!important;
 }
-
 .nav{
     padding: 0px;
     margin:0px;
@@ -34,7 +33,6 @@ ul > li{
 .nav li:hover {
     background-color: coral;
 }
-
 
 .name{
     text-align: center;

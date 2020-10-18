@@ -47,6 +47,9 @@
             <th class="name">
                 Rola Pracownika
             </th>
+            <th class="name">
+                Dział Pracownika
+            </th>
             </thead>
             <tr class="wartosc" th:each="pracownicy : ${pracownicyList}">
 
@@ -55,6 +58,8 @@
                 <td th:text="${pracownicy.lastName}"/>
 
                 <td th:text="${pracownicy.rolaPracownika}"/>
+
+                <td th:text="${pracownicy.dzialPracownika}"/>
             </tr>
         </table>
     </div>

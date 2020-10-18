@@ -5,7 +5,6 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepos
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -31,7 +30,7 @@ public class RolaPracownikaCeontroller {
         repository.deleteById(id);
         return "usunieto rekord "+id;
     }
-    @PostConstruct
+    //@PostConstruct
     public void dodajRolePracownika(){
         RolaPracownikaEntity rola1 = new RolaPracownikaEntity("ADMIN");
         RolaPracownikaEntity rola2 = new RolaPracownikaEntity("USER");

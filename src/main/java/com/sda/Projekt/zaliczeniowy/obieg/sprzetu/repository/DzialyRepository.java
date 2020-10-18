@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DzialyRepository extends JpaRepository<DzialyEntity, Long> {
 
-    DzialyEntity getIdDepartment (long id);
+    DzialyEntity getById (long id);
 }

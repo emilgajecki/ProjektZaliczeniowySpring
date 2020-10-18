@@ -1,16 +1,17 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
-@RestController
+@Controller
 public class DzialyController {
 
     @Autowired
@@ -32,7 +33,8 @@ public class DzialyController {
         repository.deleteById(id);
         return "usunieto rekord "+id;
     }
-    @PostConstruct
+
+    //@PostConstruct
     public void dodajDzialPracownika(){
         DzialyEntity dzial1 = new DzialyEntity("IT");
         DzialyEntity dzial2 = new DzialyEntity("RESZTA");

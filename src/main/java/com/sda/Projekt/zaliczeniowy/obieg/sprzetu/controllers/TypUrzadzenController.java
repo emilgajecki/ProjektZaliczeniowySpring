@@ -5,7 +5,6 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.TypUrzadzeniaReposi
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
@@ -31,7 +30,7 @@ public class TypUrzadzenController {
         return "usunięto rekord "+id;
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void dodajKilkaTypowSprzetu(){
         TypUrzadzenia urzadzenie1 = new TypUrzadzenia("laptop");
         TypUrzadzenia urzadzenie2 = new TypUrzadzenia("stacjonarka");

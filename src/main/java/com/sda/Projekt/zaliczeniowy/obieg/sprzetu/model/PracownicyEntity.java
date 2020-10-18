@@ -19,8 +19,6 @@ public class PracownicyEntity {
     @JoinColumn(name = "deprtmentID")
     private  DzialyEntity pracIdDepartment;
 
-
-
     public PracownicyEntity(){
 
     }
@@ -29,7 +27,6 @@ public class PracownicyEntity {
         this.name = name;
         this.lastName = lastName;
     }
-
 
 
     public long getId() {

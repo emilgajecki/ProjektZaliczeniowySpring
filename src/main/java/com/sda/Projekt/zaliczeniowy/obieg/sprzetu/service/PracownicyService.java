@@ -42,7 +42,7 @@ public class PracownicyService {
         try {
             PracownicyEntity entity = PracownicyMapper.mapDtoToEntity(pracownicyDto);
             RolaPracownikaEntity rolaPracownika = rolaPracownikaRepository.getByIdRole(pracownicyDto.getPracIdRole());
-            DzialyEntity dzialyEntity = dzialyRepository.getIdDepartment(pracownicyDto.getPracIdDepartment());
+            DzialyEntity dzialyEntity = dzialyRepository.getById(pracownicyDto.getPracIdDepartment());
             entity.setPracIdRole(rolaPracownika);
             entity.setPracIdDepartment(dzialyEntity);
             pracownicyRepository.save(entity);
