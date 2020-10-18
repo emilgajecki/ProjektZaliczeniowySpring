@@ -23,7 +23,6 @@ public class SprzetEntity {
     public SprzetEntity(String producent, String model, String serialNumber) {
         this.producent = producent;
         this.model = model;
-
         this.serialNumber = serialNumber;
     }
 

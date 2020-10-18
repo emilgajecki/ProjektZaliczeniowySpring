@@ -40,6 +40,7 @@ public class SprzetController {
             return "/newDevice";
         }
         sprzetService.save(sprzetDto);
+
         return "redirect:/sprzetList";
     }
 
