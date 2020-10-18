@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Wszyscy pracownicy</title>
+    <title>Pracownicy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css">
@@ -11,8 +11,9 @@
 <body>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
+        <div class="container">
             <h1 class="display-4">
-                <center>Lista sprzetu</center>
+                <center>Dodaj nowy dzial</center>
             </h1>
         </div>
     </div>
@@ -38,42 +39,18 @@
             <a href="/dzialyList">Pokaż sprzęt</a>
         </li>
     </ul>
-
 </div>
+<div class="container">
 <div class="row">
     <div class="col">
-        <table class="table">
-            <thead>
-            <th class="name">
-                producent
-            </th>
-            <th class="name">
-                model
-            </th>
-            <th class="name">
-                serial
-            </th>
-            <th class="name">
-                typ urzadzenai
-            </th>
-            <th class="name">
-                Data utworzenia
-            </th>
-            </thead>
-            <tr class="wartosc" th:each="sprzet : ${sprzetList}">
-
-                <td th:text="${sprzet.producent}"/>
-
-                <td th:text="${sprzet.model}"/>
-
-                <td th:text="${sprzet.serialNumber}"/>
-
-                <td th:text="${sprzet.typUrzadzenia}"/>
-
-                <td th:text="${sprzet.createDate}"/>
-            </tr>
-        </table>
+        <form role="form" th:object="${dzial}" th:action="@{/dzial/add}" method="post">
+            <div class="form-group">
+                <label for="nameDepartment">podaj dział</label>
+                <input class="form-control" type="text" name="nameDepartment" id="nameDepartment">
+            </div>
+        </form>
     </div>
+</div>
 </div>
 </body>
 </html>

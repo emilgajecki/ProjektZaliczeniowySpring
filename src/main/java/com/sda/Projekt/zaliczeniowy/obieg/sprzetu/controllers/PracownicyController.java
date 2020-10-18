@@ -19,7 +19,7 @@ import java.util.Date;
 public class PracownicyController {
 
     @Autowired
-    PracownicyService pracownicyService;
+    private PracownicyService pracownicyService;
 
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
     public String pracownicyList(Model model) {

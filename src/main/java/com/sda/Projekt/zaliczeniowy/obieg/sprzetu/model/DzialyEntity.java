@@ -1,11 +1,11 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "dzialy")
 public class DzialyEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +14,17 @@ public class DzialyEntity {
 
     @OneToMany(mappedBy = "pracIdDepartment")
     private List<PracownicyEntity> pracownicy;
+
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 
     public long getId() {
         return id;

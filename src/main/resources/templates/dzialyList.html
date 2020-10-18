@@ -12,7 +12,7 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">
-                <center>Lista sprzetu</center>
+                <center>Lista pracowników</center>
             </h1>
         </div>
     </div>
@@ -45,32 +45,17 @@
         <table class="table">
             <thead>
             <th class="name">
-                producent
+                dzial
             </th>
             <th class="name">
-                model
-            </th>
-            <th class="name">
-                serial
-            </th>
-            <th class="name">
-                typ urzadzenai
-            </th>
-            <th class="name">
-                Data utworzenia
+                data Utworzenia
             </th>
             </thead>
-            <tr class="wartosc" th:each="sprzet : ${sprzetList}">
+            <tr class="wartosc" th:each="dzial : ${dzialyList}">
 
-                <td th:text="${sprzet.producent}"/>
+                <td th:text="${dzial.nameDepartment}"/>
 
-                <td th:text="${sprzet.model}"/>
-
-                <td th:text="${sprzet.serialNumber}"/>
-
-                <td th:text="${sprzet.typUrzadzenia}"/>
-
-                <td th:text="${sprzet.createDate}"/>
+                <td th:text="${dzial.createDate}"/>
             </tr>
         </table>
     </div>

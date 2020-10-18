@@ -1,40 +1,51 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.DzialyDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.DzialyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@RestController
+@Controller
 public class DzialyController {
 
     @Autowired
-    DzialyRepository repository;
+    private DzialyService dzialyService;
 
-    @GetMapping("/dzialy")
-    public List<DzialyEntity> wszystkieDialy(){
-        return repository.findAll();
+    @RequestMapping(value = "/dzialyList", method = RequestMethod.GET)
+    public String dzialyList(Model model) {
+
+        model.addAttribute("dzialyList", dzialyService.getall());
+
+        return "/dzialyList";
     }
 
-    @PostMapping("/dzial")
-    public String dzialPracownika (@RequestBody DzialyEntity dzialyEntity){
-        repository.save(dzialyEntity);
-        return "Dodano dzial pracownika " +dzialyEntity.getNameDepartment();
+    @RequestMapping(value = "/dzialy/add", method = RequestMethod.GET)
+    public String dodajSprzet(Model model) {
+
+        model.addAttribute("dzial", new DzialyDto());
+
+        return "/newDzial";
     }
 
-    @DeleteMapping("/dzial")
-    private String usunDzial(long id){
-        repository.deleteById(id);
-        return "usunieto rekord "+id;
-    }
+    @RequestMapping(value = "/dzialy/add", method = RequestMethod.POST)
+    public String dodajSprzet(@ModelAttribute("dzial") @Validated DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
 
-    //@PostConstruct
-    public void dodajDzialPracownika(){
-        DzialyEntity dzial1 = new DzialyEntity("IT");
-        DzialyEntity dzial2 = new DzialyEntity("RESZTA");
-        repository.save(dzial1);
-        repository.save(dzial2);
+        if (bindingResult.hasErrors()) {
+            return "/newDzial";
+        }
+        dzialyDto.setCreateDate(new SimpleDateFormat(PracownicyMapper.DATE_FORMAT).format(new Date()));
+        dzialyService.save(dzialyDto);
+
+        return "redirect:/sprzetList";
     }
 }
