@@ -36,7 +36,7 @@
             <a href="/dzialy/add">Dodaj dzial</a>
         </li>
         <li>
-            <a href="/dzialyList">Pokaż dzial</a>
+            <a href="/dzialList">Pokaż dzial</a>
         </li>
     </ul>
 </div>
@@ -60,8 +60,12 @@
             </div>
 
             <div class="form-group">
-                <label for="pracIdDepartment">Podaj dział pracownika(1.IT, 2.Reszta)</label>
-                <input class="form-control" type="number" name="pracIdDepartment" id="pracIdDepartment">
+                <label for="pracIdDepartment">Wybierz dział pracownika</label>
+                <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
+                    <tr class="wartosc" th:each="dzial : ${dzialList}">
+
+                        <option> <td th:text="${dzial.nameDepartment}"/></option>
+                </select>
             </div>
 
             <div class="form-group">

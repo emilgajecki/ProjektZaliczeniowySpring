@@ -29,7 +29,7 @@ public class DzialyController {
         return "/dzialList";
     }
 
-    @RequestMapping(value = "/dzial/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/dzialy/add", method = RequestMethod.GET)
     public String dodajDzial(Model model) {
 
         model.addAttribute("dzial", new DzialyDto());
@@ -37,7 +37,7 @@ public class DzialyController {
         return "/newDzial";
     }
 
-    @RequestMapping(value = "/dzial/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/dzialy/add", method = RequestMethod.POST)
     public String dodajDzial(@ModelAttribute("dzial") @Validated DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {

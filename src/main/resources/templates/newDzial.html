@@ -36,19 +36,18 @@
             <a href="/dzialy/add">Dodaj dzial</a>
         </li>
         <li>
-            <a href="/dzialyList">Pokaż dzial</a>
+            <a href="/dzialList">Pokaż dzial</a>
         </li>
     </ul>
 </div>
 <div class="container">
 <div class="row">
-    <div class="col">
-        <form role="form" th:object="${dzial}" th:action="@{/dzial/add}" method="post">
+    ,<div class="col">
+        <form role="form" th:object="${dzial}" th:action="@{/dzialy/add}" method="post">
             <div class="form-group">
                 <label for="nameDepartment">podaj dział</label>
                 <input class="form-control" type="text" name="nameDepartment" id="nameDepartment">
             </div>
-
             <div class="form-group">
                 <input type="submit" value="Dodaj dział"/>
             </div>
