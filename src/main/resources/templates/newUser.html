@@ -62,9 +62,9 @@
             <div class="form-group">
                 <label for="pracIdDepartment">Wybierz dział pracownika</label>
                 <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
-                    <tr class="wartosc" th:each="dzial : ${dzialList}">
+                    <tr class="wartosc"  name="dzialList" th:each="dzial : ${dzialList}">
 
-                        <option> <td th:text="${dzial.nameDepartment}"/></option>
+                        <option><td th:text="${dzial.id}"/> <td th:text="${dzial.nameDepartment}"/></option>
                 </select>
             </div>
 

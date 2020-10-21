@@ -25,6 +25,8 @@ public class PracownicyController {
     @Autowired
     private DzialyService dzialyService;
 
+
+
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
     public String pracownicyList(Model model) {
 
@@ -36,7 +38,7 @@ public class PracownicyController {
     @RequestMapping(value = "/pracownicy/add", method = RequestMethod.GET)
     public String dodajPracownika(Model model) {
 
-        model.addAttribute("dzialList", dzialyService.getall());
+        model.addAttribute("dzialList", dzialyService.getall().toString().trim());
         model.addAttribute("pracownicy", new PracownicyDto());
 
 
