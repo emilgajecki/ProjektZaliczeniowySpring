@@ -17,11 +17,6 @@ public class SprzetEntity {
     @JoinColumn(name = "sprzetID")
     private TypUrzadzeniaEntity sprzetIdTyp;
 
-    @OneToOne
-    @JoinColumn(name = "sprzetIdWydanie")
-    private WydanieEntity wydanieId;
-
-
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
@@ -81,13 +76,5 @@ public class SprzetEntity {
 
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
-    }
-
-    public WydanieEntity getWydanieId() {
-        return wydanieId;
-    }
-
-    public void setWydanieId(WydanieEntity wydanieId) {
-        this.wydanieId = wydanieId;
     }
 }

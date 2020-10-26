@@ -10,12 +10,6 @@ public class WydanieEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "pracownikId")
-    private PracownicyEntity pracIdWydanie;
-
-    @OneToOne(mappedBy = "sprzetId")
-    private SprzetEntity sprzet;
 
     @Temporal(TemporalType.DATE)
     private Date createDate;
@@ -42,21 +36,5 @@ public class WydanieEntity {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public PracownicyEntity getPracIdWydanie() {
-        return pracIdWydanie;
-    }
-
-    public void setPracIdWydanie(PracownicyEntity pracIdWydanie) {
-        this.pracIdWydanie = pracIdWydanie;
-    }
-
-    public SprzetEntity getSprzet() {
-        return sprzet;
-    }
-
-    public void setSprzet(SprzetEntity sprzet) {
-        this.sprzet = sprzet;
     }
 }

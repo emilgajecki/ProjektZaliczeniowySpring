@@ -2,7 +2,6 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity(name = "pracownicy")
 public class PracownicyEntity {
@@ -19,9 +18,6 @@ public class PracownicyEntity {
     @ManyToOne()
     @JoinColumn(name = "deprtmentID")
     private  DzialyEntity pracIdDepartment;
-
-    @OneToMany(mappedBy = "pracIdWydanie")
-    private List<WydanieEntity> wydanie;
 
 
     @Temporal(TemporalType.DATE)
@@ -74,11 +70,4 @@ public class PracownicyEntity {
         this.pracIdDepartment = pracIdDeptmewnt;
     }
 
-    public List<WydanieEntity> getWydanie() {
-        return wydanie;
-    }
-
-    public void setWydanie(List<WydanieEntity> wydanie) {
-        this.wydanie = wydanie;
-    }
 }

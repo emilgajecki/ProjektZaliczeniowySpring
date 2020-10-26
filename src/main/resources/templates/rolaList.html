@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Pracownicy</title>
+    <title>Wszyscy pracownicy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css" type="text/css">
@@ -11,11 +11,11 @@
 <body>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <h1 class="display-4">
-            <center>Strona główna</center>
-        </h1>
+            <h1 class="display-4">
+                <center>Lista pracowników</center>
+            </h1>
+        </div>
     </div>
-</div>
 </div>
 <div class="nav">
     <ul>
@@ -46,13 +46,26 @@
     </ul>
 
 </div>
-    <article>
-        <center><H1>O stronie</H1>
-            <p>Strona z podstawowymi informacjami na temat technologi front-endu.</p>
-        </center>
-    </article>
-</main>
-<footer>
-</footer>
+<div class="container">
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead>
+            <th class="name">
+                dzial
+            </th>
+            <th class="name">
+                data Utworzenia
+            </th>
+            </thead>
+            <tr class="wartosc" th:each="rola : ${rolaList}">
+
+                <td th:text="${rola.role}"/>
+
+                <td th:text="${rola.createDate}"/>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

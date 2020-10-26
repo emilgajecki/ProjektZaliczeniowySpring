@@ -47,7 +47,7 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
         <h1 class="display-4">
-            <center>Dodaj nowy sprzet</center>
+            <center>Dodaj nową role</center>
         </h1>
     </div>
 </div>
@@ -84,32 +84,15 @@
 <div class="container">
 <div class="row">
     <div class="col">
-        <form role="form" th:object="${sprzet}" th:action="@{/sprzet/add}" method="post">
+        <form role="form" th:object="${rola}" th:action="@{/rola/add}" method="post">
             <div class="form-group">
-                <label for="producent">Podaj Producenta</label>
-                <input class="form-control" type="text" name="producent" id="producent">
+                <label for="role">Dodaj role</label>
+                <input class="form-control" type="text" name="role" id="role">
             </div>
 
-            <div class="form-group">
-                <label for="model">Podaj model</label>
-                <input class="form-control" type="text" name="model" id="model">
-            </div>
 
             <div class="form-group">
-                <label for="serialNumber">podaj sn</label>
-                <input class="form-control" type="text" name="serialNumber" id="serialNumber">
-            </div>
-
-            <div class="form-group">
-                <label for="typUrzadzenia">Podaj typ urzadzenia(id typ_urządzenia
-                    1 laptop
-                    2 stacjonarka
-                    3 drukarka)</label>
-                <input class="form-control" type="number" name="typUrzadzenia" id="typUrzadzenia">
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Dodaj sprzet"/>
+                <input type="submit" value="Dodaj role"/>
             </div>
         </form>
     </div>

@@ -1,9 +1,10 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
-@Entity(name = "rola")
+@Entity
 public class RolaPracownikaEntity {
 
     @Id
@@ -14,13 +15,8 @@ public class RolaPracownikaEntity {
     @OneToMany(mappedBy = "pracIdRole")
     private List<PracownicyEntity> pracownicy;
 
-    public long getIdRole() {
-        return idRole;
-    }
-
-    public void setIdRole(long idRole) {
-        this.idRole = idRole;
-    }
+    @Temporal(TemporalType.DATE)
+    private Date createDate;
 
     public List<PracownicyEntity> getPracownicy() {
         return pracownicy;
@@ -34,6 +30,14 @@ public class RolaPracownikaEntity {
 
     }
 
+    public long getIdRole() {
+        return idRole;
+    }
+
+    public void setIdRole(long idRole) {
+        this.idRole = idRole;
+    }
+
     public RolaPracownikaEntity(String role) {
         this.role = role;
     }
@@ -44,5 +48,13 @@ public class RolaPracownikaEntity {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
