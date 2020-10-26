@@ -6,7 +6,45 @@
     <title>Pracownicy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <style type="text/css">
+        <!--
+        .nav{
+            padding: 0px;
+            margin:0px;
+            background-color:#f06927;
+            text-align: center;
+            display: block;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+        }
+        ul > li{
+            border-right: 1px dashed #ffffff;
+        }
+        .nav li{
+            float:left;
+            list-style:none;
+            margin:0;
+        }
+        .nav li a{
+            padding: 20px 15px;
+            display: inline-block;
+            text-decoration:none;
+            position:relative;
+            z-index: 1;
+            color: white;
+            text-transform:uppercase;
+        }
+        .nav li:hover {
+            background-color: coral;
+        }
+        .wartosc{
+            text-align: center;
+        }
+        -->
+    </style>
 </head>
 <body>
 <div class="container">
@@ -40,6 +78,7 @@
         </li>
     </ul>
 </div>
+<br>
 <div class="container">
 <div class="row">
     <div class="col">
@@ -62,9 +101,11 @@
             <div class="form-group">
                 <label for="pracIdDepartment">Wybierz dział pracownika</label>
                 <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
-                    <tr class="wartosc"  name="dzialList" th:each="dzial : ${dzialList}">
 
-                        <option><td th:text="${dzial.id}"/> <td th:text="${dzial.nameDepartment}"/></option>
+
+                        <option th:each="dzial : ${dzialList}"
+                                th:value="${dzial.id}"
+                                th:text="${dzial.nameDepartment}"></option>
                 </select>
             </div>
 

@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Pracownicy</title>
+    <title>Sprzet</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <style type="text/css">
@@ -46,12 +46,11 @@
 <body>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">
-                <center>Dodaj nowy dzial</center>
-            </h1>
-        </div>
+        <h1 class="display-4">
+            <center>Dodaj nowy sprzet</center>
+        </h1>
     </div>
+</div>
 </div>
 <div class="nav">
     <ul>
@@ -78,14 +77,32 @@
 <br>
 <div class="container">
 <div class="row">
-    ,<div class="col">
-        <form role="form" th:object="${dzial}" th:action="@{/dzialy/add}" method="post">
+    <div class="col">
+        <form role="form" th:object="${wydanie}" th:action="@{/wydanie/add}" method="post">
             <div class="form-group">
-                <label for="nameDepartment">podaj dział</label>
-                <input class="form-control" type="text" name="nameDepartment" id="nameDepartment">
+                <label for="pracownicy">Wybierz pracownika</label>
+                <select class="wartosc" name="pracownicy" id="pracownicy">
+
+
+                    <option th:each="pracownicy : ${pracownicyList}"
+                            th:value="${pracownicy.id}"
+                            th:text="${pracownicy.getName()+pracownicy.getLastName()}"></option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Dodaj dział"/>
+                <label for="sprzet">Wybierz sprzet</label>
+                <select class="wartosc" name="sprzet" id="sprzet">
+
+
+                    <!--/*@thymesVar id="getProducent" type=""*/-->
+                    <option th:each="sprzet : ${sprzetList}"
+                            th:value="${sprzet.id}"
+                            th:text="${sprzet.getProducent()+sprzet.getModel()}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj sprzet"/>
             </div>
         </form>
     </div>

@@ -1,44 +1,61 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.Wydanie;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.WydanieRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.WydanieDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.WydanieMapper;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.SprzetService;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.WydanieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.annotation.PostConstruct;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@RestController
+@Controller
 public class WydanieController {
 
     @Autowired
-    WydanieRepository repository;
+    private WydanieService wydanieService;
 
-    @GetMapping("/wydanie")
-    public List<Wydanie> wyszstkieWydania(){
-        return repository.findAll();
+    @Autowired
+    private PracownicyService pracownicyService;
+
+    @Autowired
+    private SprzetService sprzetService;
+
+    @RequestMapping(value = "/wydanieList", method = RequestMethod.GET)
+    public String wydanieList(Model model) {
+
+        model.addAttribute("wydanieList", wydanieService.getall());
+
+        return "/wydanieList";
     }
 
+    @RequestMapping(value = "/wydanie/add", method = RequestMethod.GET)
+    public String dodajWydanie(Model model) {
 
+        model.addAttribute("pracownicyList", pracownicyService.getall());
+        model.addAttribute("sprzetList", sprzetService.getall());
+        model.addAttribute("wydanie", new WydanieDto());
 
-    @PostMapping("/wydanie")
-    public void wydanieSprzętu (@RequestBody Wydanie wydnaie){
-        repository.save(wydnaie);
+        return "/newWydanie";
     }
 
-    @DeleteMapping("wydanie")
-    private String usunWydanie (long id){
-        repository.deleteById(id);
-        return "usunieto rekord "+id;
+    @RequestMapping(value = "/wydanie/add", method = RequestMethod.POST)
+    public String dodajWyadnie(@ModelAttribute("wydanie") @Validated WydanieDto wydanieDto, BindingResult bindingResult, Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return "/newWydanie";
+        }
+        wydanieDto.setCreateDate(new SimpleDateFormat(WydanieMapper.DATE_FORMAT).format(new Date()));
+        wydanieService.save(wydanieDto);
+
+        return "redirect:/wydanieList";
     }
-
-    //@PostConstruct
-    public void dodajKilkaWydan(){
-        Wydanie wydanie1 = new Wydanie(1,2);
-        Wydanie wydanie2 = new Wydanie (2,2);
-        repository.save(wydanie1);
-        repository.save(wydanie2);
-    }
-
-
 }

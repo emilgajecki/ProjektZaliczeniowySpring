@@ -38,18 +38,18 @@ public class PracownicyController {
     @RequestMapping(value = "/pracownicy/add", method = RequestMethod.GET)
     public String dodajPracownika(Model model) {
 
-        model.addAttribute("dzialList", dzialyService.getall().toString().trim());
+        model.addAttribute("dzialList", dzialyService.getall());
         model.addAttribute("pracownicy", new PracownicyDto());
 
 
-        return "/newUser";
+        return "newUser";
     }
 
     @RequestMapping(value = "/pracownicy/add", method = RequestMethod.POST)
     public String dodajPracownika(@ModelAttribute("pracownicy") @Validated PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "/newUser";
+            return "newUser";
         }
         pracownicyDto.setCreateDate(new SimpleDateFormat(PracownicyMapper.DATE_FORMAT).format(new Date()));
         pracownicyService.save(pracownicyDto);

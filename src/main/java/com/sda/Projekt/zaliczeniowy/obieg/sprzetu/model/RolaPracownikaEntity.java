@@ -3,7 +3,7 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "rola_pracownika")
+@Entity(name = "rola")
 public class RolaPracownikaEntity {
 
     @Id
