@@ -92,8 +92,8 @@
     <div class="col">
         <form role="form" th:object="${wydanie}" th:action="@{/wydanie/add}" method="post">
             <div class="form-group">
-                <label for="pracIdRole">Wybierz pracownika</label>
-                <select class="wartosc" name="pracIdRole" id="pracIdRole">
+                <label for="pracId">Wybierz pracownika</label>
+                <select class="wartosc" name="pracId" id="pracId">
 
                     <option th:each="pracownicy : ${pracownicyList}"
                             th:value="${pracownicy.id}"
