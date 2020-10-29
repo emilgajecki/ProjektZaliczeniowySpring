@@ -4,6 +4,7 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.DzialyService;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.RolaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +26,9 @@ public class PracownicyController {
     @Autowired
     private DzialyService dzialyService;
 
+    @Autowired
+    private RolaService rolaService;
+
 
 
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
@@ -39,6 +43,7 @@ public class PracownicyController {
     public String dodajPracownika(Model model) {
 
         model.addAttribute("dzialList", dzialyService.getall());
+        model.addAttribute("rolaList", rolaService.getall());
         model.addAttribute("pracownicy", new PracownicyDto());
 
 

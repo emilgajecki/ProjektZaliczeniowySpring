@@ -100,8 +100,14 @@
             </div>
 
             <div class="form-group">
-                <label for="pracIdRole">podaj role (1.ADMIN, 2.USER)</label>
-                <input class="form-control" type="number" name="pracIdRole" id="pracIdRole">
+                <label for="pracIdRole">Wybierz role pracownika</label>
+                <select class="wartosc" name="pracIdRole" id="pracIdRole">
+
+
+                    <option th:each="rola : ${rolaList}"
+                            th:value="${rola.id}"
+                            th:text="${rola.role}"></option>
+                </select>
             </div>
 
             <div class="form-group">
