@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SprzetRepository extends JpaRepository<SprzetEntity, Long> {
+
+    SprzetEntity getById(long id);
 }

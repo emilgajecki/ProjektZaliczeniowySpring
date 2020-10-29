@@ -97,7 +97,16 @@
 
                     <option th:each="pracownicy : ${pracownicyList}"
                             th:value="${pracownicy.id}"
-                            th:text="${pracownicy.lastName}"></option>
+                            th:text="${pracownicy.name+pracownicy.lastName}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sprzetId">Wybierz sprzet</label>
+                <select class="wartosc" name="sprzetId" id="sprzetId">
+
+                    <option th:each="sprzet : ${sprzetList}"
+                            th:value="${sprzet.id}"
+                            th:text="${sprzet.producent+sprzet.model}"></option>
                 </select>
             </div>
 

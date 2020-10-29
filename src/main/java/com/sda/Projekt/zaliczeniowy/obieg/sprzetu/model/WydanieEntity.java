@@ -14,6 +14,12 @@ public class WydanieEntity {
     @JoinColumn(name = "pracID")
     private PracownicyEntity pracId;
 
+    @OneToOne()
+    @JoinColumn(name= "sprzetID")
+    private SprzetEntity sprzetId;
+
+
+
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
@@ -43,6 +49,14 @@ public class WydanieEntity {
 
     public PracownicyEntity getPracId() {
         return pracId;
+    }
+
+    public SprzetEntity getSprzetId() {
+        return sprzetId;
+    }
+
+    public void setSprzetId(SprzetEntity sprzetId) {
+        this.sprzetId = sprzetId;
     }
 
     public void setPracId(PracownicyEntity pracID) {

@@ -2,6 +2,7 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class SprzetEntity {
@@ -16,6 +17,9 @@ public class SprzetEntity {
     @ManyToOne
     @JoinColumn(name = "sprzetID")
     private TypUrzadzeniaEntity sprzetIdTyp;
+
+    @OneToMany(mappedBy = "sprzetId")
+    private List<WydanieEntity> wydanie;
 
     @Temporal(TemporalType.DATE)
     private Date createDate;
@@ -76,5 +80,13 @@ public class SprzetEntity {
 
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
+    }
+
+    public List<WydanieEntity> getWydanie() {
+        return wydanie;
+    }
+
+    public void setWydanie(List<WydanieEntity> wydanie) {
+        this.wydanie = wydanie;
     }
 }

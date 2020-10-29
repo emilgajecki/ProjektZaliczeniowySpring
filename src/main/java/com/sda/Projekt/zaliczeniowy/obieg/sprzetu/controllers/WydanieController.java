@@ -3,6 +3,7 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.WydanieDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.SprzetService;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.WydanieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,9 @@ public class WydanieController {
     @Autowired
     private PracownicyService pracownicyService;
 
+    @Autowired
+    private SprzetService sprzetService;
+
     @RequestMapping(value = "/wydanieList", method = RequestMethod.GET)
     public String wydanieList(Model model) {
 
@@ -36,6 +40,7 @@ public class WydanieController {
     @RequestMapping(value = "/wydanie/add", method = RequestMethod.GET)
     public String wydajSprzet(Model model) {
 
+        model.addAttribute("sprzetList", sprzetService.getall());
         model.addAttribute("pracownicyList", pracownicyService.getall());
         model.addAttribute("wydanie", new WydanieDto());
 

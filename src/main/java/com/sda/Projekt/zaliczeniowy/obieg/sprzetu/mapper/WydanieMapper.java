@@ -21,7 +21,10 @@ public class WydanieMapper {
 
             WydanieListItemDto dto = new WydanieListItemDto();
             dto.setId(entity.getId());
+            dto.setImiePracownika(entity.getPracId().getName());
             dto.setNazwaPracownika(entity.getPracId().getLastName());
+            dto.setProducnetSprzetu(entity.getSprzetId().getProducent());
+            dto.setModelSprzetu(entity.getSprzetId().getModel());
             dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
 
             result.add(dto);

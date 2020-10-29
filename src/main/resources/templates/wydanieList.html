@@ -54,12 +54,18 @@
                         pracownik
                     </th>
                     <th class="name">
+                        sprzet
+                    </th>
+                    <th class="name">
                         data wydania
                     </th>
                     </thead>
                     <tr class="wartosc" th:each="wydanie : ${wydanieList}">
 
-                        <td th:text="${wydanie.nazwaPracownika}"/>
+
+                        <td th:text="${wydanie.imiePracownika+wydanie.nazwaPracownika}"/>
+
+                        <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
 
                         <td th:text="${wydanie.createDate}"/>
                     </tr>

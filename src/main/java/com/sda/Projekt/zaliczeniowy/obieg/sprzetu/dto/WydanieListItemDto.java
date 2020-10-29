@@ -3,7 +3,10 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto;
 public class WydanieListItemDto {
 
     private long id;
+    private String imiePracownika;
     private String nazwaPracownika;
+    private String producnetSprzetu;
+    private String modelSprzetu;
     private String createDate;
 
     public long getId() {
@@ -28,5 +31,28 @@ public class WydanieListItemDto {
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+    public String getImiePracownika() {
+        return imiePracownika;
+    }
+
+    public void setImiePracownika(String imiePracownika) {
+        this.imiePracownika = imiePracownika;
+    }
+
+    public String getProducnetSprzetu() {
+        return producnetSprzetu;
+    }
+
+    public void setProducnetSprzetu(String producnetSprzetu) {
+        this.producnetSprzetu = producnetSprzetu;
+    }
+
+    public String getModelSprzetu() {
+        return modelSprzetu;
+    }
+
+    public void setModelSprzetu(String modelSprzetu) {
+        this.modelSprzetu = modelSprzetu;
     }
 }

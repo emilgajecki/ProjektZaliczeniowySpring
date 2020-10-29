@@ -4,6 +4,7 @@ public class WydanieDto {
 
     private long id;
     private long pracId;
+    private long sprzetId;
     private String createDate;
 
     public long getId() {
@@ -28,5 +29,13 @@ public class WydanieDto {
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public long getSprzetId() {
+        return sprzetId;
+    }
+
+    public void setSprzetId(long sprzetId) {
+        this.sprzetId = sprzetId;
     }
 }
