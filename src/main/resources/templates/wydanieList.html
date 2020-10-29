@@ -11,11 +11,11 @@
 <body>
 <div class="container">
     <div class="jumbotron jumbotron-fluid">
-            <h1 class="display-4">
-                <center>Lista pracowników</center>
-            </h1>
-        </div>
+        <h1 class="display-4">
+            <center>Lista pracowników</center>
+        </h1>
     </div>
+</div>
 </div>
 <div class="nav">
     <ul>
@@ -38,34 +38,34 @@
             <a href="/dzialList">Pokaż dzial</a>
         </li>
         <li>
-            <a href="/rola/add">dodaj role</a>
+            <a href="/wydanieList">Pokaż wydanie</a>
         </li>
         <li>
-            <a href="/rolaList">pokaz role</a>
+            <a href="/wydanie/add">Wydaj sprzęt</a>
         </li>
     </ul>
-
 </div>
-<div class="container">
-<div class="row">
-    <div class="col">
-        <table class="table">
-            <thead>
-            <th class="name">
-                dzial
-            </th>
-            <th class="name">
-                data Utworzenia
-            </th>
-            </thead>
-            <tr class="wartosc" th:each="wydanie : ${wydanieList}">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead>
+                    <th class="name">
+                        pracownik
+                    </th>
+                    <th class="name">
+                        data wydania
+                    </th>
+                    </thead>
+                    <tr class="wartosc" th:each="wydanie : ${wydanieList}">
 
-                <td th:text="${wydanie.pracoId}"/>
+                        <td th:text="${wydanie.nazwaPracownika}"/>
 
-                <td th:text="${wydanie.sprzetId}"/>
-            </tr>
-        </table>
+                        <td th:text="${wydanie.createDate}"/>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>

@@ -10,6 +10,9 @@ public class WydanieEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne()
+    @JoinColumn(name = "pracID")
+    private PracownicyEntity pracId;
 
     @Temporal(TemporalType.DATE)
     private Date createDate;
@@ -36,5 +39,13 @@ public class WydanieEntity {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public PracownicyEntity getPracId() {
+        return pracId;
+    }
+
+    public void setPracId(PracownicyEntity pracID) {
+        this.pracId = pracID;
     }
 }

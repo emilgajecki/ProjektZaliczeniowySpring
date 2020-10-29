@@ -73,10 +73,16 @@
             <a href="/dzialList">Pokaż dzial</a>
         </li>
         <li>
-            <a href="/rola/add">dodaj role</a>
+            <a href="/rola/add">Dodaj role</a>
         </li>
         <li>
-            <a href="/rolaList">pokaz role</a>
+            <a href="/rolaList">Pokaż dzial</a>
+        </li>
+        <li>
+            <a href="/wydanieList">Pokaż wydanie</a>
+        </li>
+        <li>
+            <a href="/wydanie/add">Wydaj sprzęt</a>
         </li>
     </ul>
 </div>
@@ -86,29 +92,17 @@
     <div class="col">
         <form role="form" th:object="${wydanie}" th:action="@{/wydanie/add}" method="post">
             <div class="form-group">
-                <label for="pracownicy">Wybierz pracownika</label>
-                <select class="wartosc" name="pracownicy" id="pracownicy">
-
+                <label for="pracIdRole">Wybierz pracownika</label>
+                <select class="wartosc" name="pracIdRole" id="pracIdRole">
 
                     <option th:each="pracownicy : ${pracownicyList}"
                             th:value="${pracownicy.id}"
-                            th:text="${pracownicy.getName()+pracownicy.getLastName()}"></option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sprzet">Wybierz sprzet</label>
-                <select class="wartosc" name="sprzet" id="sprzet">
-
-
-                    <!--/*@thymesVar id="getProducent" type=""*/-->
-                    <option th:each="sprzet : ${sprzetList}"
-                            th:value="${sprzet.id}"
-                            th:text="${sprzet.getProducent()+sprzet.getModel()}"></option>
+                            th:text="${pracownicy.lastName}"></option>
                 </select>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Dodaj sprzet"/>
+                <input type="submit" value="Wydaj sprzęt"/>
             </div>
         </form>
     </div>
