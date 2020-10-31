@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<head>
+<head xmlns:th="http://www.w3.org/1999/xhtml">
     <meta charset="UTF-8">
-    <title>Wszyscy pracownicy</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
@@ -36,27 +35,26 @@
         </li>
     </ul>
 </div>
-</div>
 <div class="container">
     <div class="row">
         <div class="col">
             <table class="table">
                 <thead>
-                <th class="name">
-                    dzial
-                </th>
-                <th class="name">
-                    data Utworzenia
-                </th>
+                <th scope="col">name</th>
+                <th scope="col">data Utworzenia</th>
                 </thead>
+                <tbody>
                 <tr class="wartosc" th:each="dzial : ${dzialList}">
 
                     <td th:text="${dzial.nameDepartment}"/>
 
                     <td th:text="${dzial.createDate}"/>
                 </tr>
+                </tbody>
+
             </table>
         </div>
     </div>
+</div>
 </body>
 </html>
