@@ -40,16 +40,11 @@
             <div class="col">
                 <table class="table">
                     <thead>
-                    <th class="name">
-                        pracownik
-                    </th>
-                    <th class="name">
-                        sprzet
-                    </th>
-                    <th class="name">
-                        data wydania
-                    </th>
+                    <th scope="col">name + pracownik</th>
+                    <th scope="col">sprzet</th>
+                    <th scope="col">data wydania</th>
                     </thead>
+                    <tbody>
                     <tr class="wartosc" th:each="wydanie : ${wydanieList}">
 
 
@@ -59,6 +54,7 @@
 
                         <td th:text="${wydanie.createDate}"/>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
