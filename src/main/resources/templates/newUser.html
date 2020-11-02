@@ -2,7 +2,7 @@
 <head xmlns:th="http://www.w3.org/1999/xhtml">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <div class="menu-bar">
@@ -36,47 +36,49 @@
     </ul>
 </div>
 <div class="container">
-<div class="row">
-    <div class="col">
-        <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <form role="form" th:object="${pracownicy}" th:action="@{/pracownicy/add}" method="post">
+                    <div class="form-group">
+                        <label for="name">Podaj imie użytkownika</label>
+                        <input class="form-control" type="text" name="name" id="name">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="lastName">Podaj Nazwisko użytkownika</label>
+                        <input class="form-control" type="text" name="lastName" id="lastName">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pracIdRole">Wybierz stanowisko pracownika</label>
+                        <br>
+                        <select class="wartosc" name="pracIdRole" id="pracIdRole">
+                            <option th:each="rola : ${rolaList}"
+                                    th:value="${rola.id}"
+                                    th:text="${rola.role}"></option>
+                        </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="pracIdDepartment">Wybierz dział pracownika</label>
+                        <br>
+                        <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
+
+
+                            <option th:each="dzial : ${dzialList}"
+                                    th:value="${dzial.id}"
+                                    th:text="${dzial.nameDepartment}"></option>
+                        </select>
+                    </div>
+            </table>
             <div class="form-group">
-                <label for="name">Podaj imie</label>
-                <input class="form-control" type="text" name="name" id="name">
-            </div>
-
-            <div class="form-group">
-                <label for="lastName">Podaj Nazwisko</label>
-                <input class="form-control" type="text" name="lastName" id="lastName">
-            </div>
-
-            <div class="form-group">
-                <label for="pracIdRole">Wybierz role pracownika</label>
-                <select class="wartosc" name="pracIdRole" id="pracIdRole">
-
-
-                    <option th:each="rola : ${rolaList}"
-                            th:value="${rola.id}"
-                            th:text="${rola.role}"></option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="pracIdDepartment">Wybierz dział pracownika</label>
-                <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
-
-
-                        <option th:each="dzial : ${dzialList}"
-                                th:value="${dzial.id}"
-                                th:text="${dzial.nameDepartment}"></option>
-                </select>
-            </div>
-
-            <div class="form-group">
+                <br>
                 <input type="submit" value="Dodaj pracownika"/>
             </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>

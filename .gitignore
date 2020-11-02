@@ -31,3 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/sda/Projekt/zaliczeniowy/obieg/sprzetu/dto/TypUrzadzeniaListItemDto.java

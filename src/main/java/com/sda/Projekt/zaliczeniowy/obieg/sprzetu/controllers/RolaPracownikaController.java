@@ -35,14 +35,14 @@ public class RolaPracownikaController {
 
         model.addAttribute("rola", new RolaDto());
 
-        return "/newRole";
+        return "newStanowisko";
     }
 
     @RequestMapping(value = "/rola/add", method = RequestMethod.POST)
     public String dodajRole(@ModelAttribute("rola") @Validated RolaDto rolaDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            return "/newRole";
+            return "newStanowisko";
         }
         rolaDto.setCreateDate(new SimpleDateFormat(PracownicyMapper.DATE_FORMAT).format(new Date()));
         rolaService.save(rolaDto);

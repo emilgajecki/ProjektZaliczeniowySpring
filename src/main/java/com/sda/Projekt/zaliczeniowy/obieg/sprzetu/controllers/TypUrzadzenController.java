@@ -1,42 +1,52 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.TypUrzadzeniaEntity;
-import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.TypUrzadzeniaRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.RolaDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.TypUrzadzeniaDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.TypUrzadzeniaMapper;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.TypUrzadzeniaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-@RestController
+@Controller
 public class TypUrzadzenController {
 
     @Autowired
-    TypUrzadzeniaRepository repository;
+    private TypUrzadzeniaService typUrzadzeniaService ;
 
-    @GetMapping("/typurzadzen")
-    public List<TypUrzadzeniaEntity> wszystkieTypy(){
-        return repository.findAll();
+    @RequestMapping(value = "/typList", method = RequestMethod.GET)
+    public String typList(Model model) {
+
+        model.addAttribute("typList", typUrzadzeniaService.getall());
+
+        return "/typList";
     }
 
-    @PostMapping("/typurzadzen")
-    public String dodajTypUrzadzenia(@RequestBody TypUrzadzeniaEntity typUrzadzenia){
-        repository.save(typUrzadzenia);
-        return "Dodałem typ utządzenia "+typUrzadzenia.getTypUrządzenia();
+    @RequestMapping(value = "/typ/add", method = RequestMethod.GET)
+    public String dodajTyp(Model model) {
+
+        model.addAttribute("typ", new RolaDto());
+
+        return "newTyp";
     }
 
-    @DeleteMapping("/typurzadzen")
-    public String usunTypUrzadzenia(long id){
-        repository.deleteById(id);
-        return "usunięto rekord "+id;
-    }
+    @RequestMapping(value = "/typ/add", method = RequestMethod.POST)
+    public String dodajTyp(@ModelAttribute("typ") @Validated TypUrzadzeniaDto typUrzadzeniaDto, BindingResult bindingResult, Model model) {
 
-    //@PostConstruct
-    public void dodajKilkaTypowSprzetu(){
-        TypUrzadzeniaEntity urzadzenie1 = new TypUrzadzeniaEntity("laptop");
-        TypUrzadzeniaEntity urzadzenie2 = new TypUrzadzeniaEntity("stacjonarka");
-        TypUrzadzeniaEntity urzadzenie3 = new TypUrzadzeniaEntity("drukarka");
-        repository.save(urzadzenie1);
-        repository.save(urzadzenie2);
-        repository.save(urzadzenie3);
+        if (bindingResult.hasErrors()) {
+            return "newTyp";
+        }
+        typUrzadzeniaDto.setCreateDate(new SimpleDateFormat(TypUrzadzeniaMapper.DATE_FORMAT).format(new Date()));
+        typUrzadzeniaService.save(typUrzadzeniaDto);
+
+        return "redirect:/typList";
     }
 }

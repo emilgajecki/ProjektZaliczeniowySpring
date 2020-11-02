@@ -2,7 +2,7 @@
 <head xmlns:th="http://www.w3.org/1999/xhtml">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <div class="menu-bar">
@@ -40,29 +40,27 @@
     <div class="col">
         <form role="form" th:object="${sprzet}" th:action="@{/sprzet/add}" method="post">
             <div class="form-group">
-                <label for="producent">Podaj Producenta</label>
+                <label for="producent">Producent</label>
                 <input class="form-control" type="text" name="producent" id="producent">
             </div>
 
             <div class="form-group">
-                <label for="model">Podaj model</label>
+                <label for="model">Model</label>
                 <input class="form-control" type="text" name="model" id="model">
             </div>
 
             <div class="form-group">
-                <label for="serialNumber">podaj sn</label>
+                <label for="serialNumber">SN:</label>
                 <input class="form-control" type="text" name="serialNumber" id="serialNumber">
             </div>
 
             <div class="form-group">
-                <label for="typUrzadzenia">Podaj typ urzadzenia(id typ_urządzenia
-                    1 laptop
-                    2 stacjonarka
-                    3 drukarka)</label>
+                <label for="typUrzadzenia">Typ urządzenia 1,2,3</label>
                 <input class="form-control" type="number" name="typUrzadzenia" id="typUrzadzenia">
             </div>
 
             <div class="form-group">
+                <br>
                 <input type="submit" value="Dodaj sprzet"/>
             </div>
         </form>

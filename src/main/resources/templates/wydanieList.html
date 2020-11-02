@@ -2,7 +2,7 @@
 <head xmlns:th="http://www.w3.org/1999/xhtml">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
 </head>
 <body>
 <div class="menu-bar">
@@ -35,29 +35,27 @@
         </li>
     </ul>
 </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <table class="table">
-                    <thead>
-                    <th scope="col">name + pracownik</th>
-                    <th scope="col">sprzet</th>
-                    <th scope="col">data wydania</th>
-                    </thead>
-                    <tbody>
-                    <tr class="wartosc" th:each="wydanie : ${wydanieList}">
-
-
-                        <td th:text="${wydanie.imiePracownika+wydanie.nazwaPracownika}"/>
-
-                        <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
-
-                        <td th:text="${wydanie.createDate}"/>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <th scope="col">Imię pracownika</th>
+                <th scope="col">Nazwisko pracownika</th>
+                <th scope="col">Sprzęt</th>
+                <th scope="col">Data Wyadania</th>
+                </thead>
+                <tbody>
+                <tr class="wartosc" th:each="wydanie : ${wydanieList}">
+                    <td th:text="${wydanie.imiePracownika}"/>
+                    <td th:text="${wydanie.nazwaPracownika}"/>
+                    <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
+                    <td th:text="${wydanie.createDate}"/>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 </body>
 </html>
