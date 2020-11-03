@@ -44,19 +44,18 @@
         <div class="col">
             <table class="table">
                 <thead>
-                <th scope="col">Imię pracownika</th>
-                <th scope="col">Nazwisko pracownika</th>
-                <th scope="col">Sprzęt</th>
-                <th scope="col">Data Wyadania</th>
+                <th scope="col">Typ urządzenia</th>
+                <th scope="col">data Utworzenia</th>
                 </thead>
                 <tbody>
-                <tr class="wartosc" th:each="wydanie : ${wydanieList}">
-                    <td th:text="${wydanie.imiePracownika}"/>
-                    <td th:text="${wydanie.nazwaPracownika}"/>
-                    <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
-                    <td th:text="${wydanie.createDate}"/>
+                <tr class="wartosc" th:each="typ : ${typList}">
+
+                    <td th:text="${typ.typUrzadzenia}"/>
+
+                    <td th:text="${typ.createDate}"/>
                 </tr>
                 </tbody>
+
             </table>
         </div>
     </div>

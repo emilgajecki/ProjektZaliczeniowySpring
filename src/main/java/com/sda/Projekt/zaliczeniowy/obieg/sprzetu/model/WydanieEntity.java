@@ -3,7 +3,7 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "Wydanie")
 public class WydanieEntity {
 
     @Id

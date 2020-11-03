@@ -3,6 +3,7 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.SprzetDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.SprzetService;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.TypUrzadzeniaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ public class SprzetController {
     @Autowired
     private SprzetService sprzetService;
 
+    @Autowired
+    TypUrzadzeniaService typUrzadzeniaService;
+
     @RequestMapping(value = "/sprzetList", method = RequestMethod.GET)
     public String sprzetList(Model model) {
 
@@ -32,6 +36,7 @@ public class SprzetController {
     @RequestMapping(value = "/sprzet/add", method = RequestMethod.GET)
     public String dodajSprzet(Model model) {
 
+        model.addAttribute("typList", typUrzadzeniaService.getall());
         model.addAttribute("sprzet", new SprzetDto());
 
         return "/newDevice";

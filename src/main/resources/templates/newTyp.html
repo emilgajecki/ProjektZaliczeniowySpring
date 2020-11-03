@@ -40,26 +40,22 @@
     </ul>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead>
-                <th scope="col">Imię pracownika</th>
-                <th scope="col">Nazwisko pracownika</th>
-                <th scope="col">Sprzęt</th>
-                <th scope="col">Data Wyadania</th>
-                </thead>
-                <tbody>
-                <tr class="wartosc" th:each="wydanie : ${wydanieList}">
-                    <td th:text="${wydanie.imiePracownika}"/>
-                    <td th:text="${wydanie.nazwaPracownika}"/>
-                    <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
-                    <td th:text="${wydanie.createDate}"/>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="row">
+    <div class="col">
+        <form role="form" th:object="${typ}" th:action="@{/typ/add}" method="post">
+
+            <div class="form-group">
+                <label for="typUrzadzenia">Podaj typ urządzenia</label>
+                <input class="form-control" type="text" name="typUrzadzenia" id="typUrzadzenia">
+            </div>
+
+            <div class="form-group">
+                <br>
+                <input type="submit" value="Dodaj typ urządzenia"/>
+            </div>
+        </form>
     </div>
+</div>
 </div>
 </body>
 </html>
