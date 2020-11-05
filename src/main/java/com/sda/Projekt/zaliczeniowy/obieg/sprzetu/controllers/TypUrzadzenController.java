@@ -33,7 +33,7 @@ public class TypUrzadzenController {
     @RequestMapping(value = "/typ/add", method = RequestMethod.GET)
     public String dodajTyp(Model model) {
 
-        model.addAttribute("typ", new RolaDto());
+        model.addAttribute("typ", new TypUrzadzeniaDto());
 
         return "newTyp";
     }

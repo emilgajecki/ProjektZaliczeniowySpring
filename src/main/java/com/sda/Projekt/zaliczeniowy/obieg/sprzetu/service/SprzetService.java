@@ -35,7 +35,7 @@ public class SprzetService {
 
         try {
             SprzetEntity entity = SprzetMapper.mapDtoToEntity(sprzetDto);
-            TypUrzadzeniaEntity typUrzadzeniaEntity = typUrzadzeniaRepository.getById(sprzetDto.getTypUrzadzenia());
+            TypUrzadzeniaEntity typUrzadzeniaEntity = typUrzadzeniaRepository.getById(sprzetDto.getSprzetIdTyp());
             entity.setSprzetIdTyp(typUrzadzeniaEntity);
             sprzetRepository.save(entity);
         } catch (ParseException e) {

@@ -6,8 +6,9 @@ public class SprzetDto {
     private String producent;
     private String model;
     private String serialNumber;
-    private long typUrzadzenia;
+    private long sprzetIdTyp;
     private String createDate;
+
 
     public String getCreateDate() {
         return createDate;
@@ -49,11 +50,11 @@ public class SprzetDto {
         this.serialNumber = serialNumber;
     }
 
-    public long getTypUrzadzenia() {
-        return typUrzadzenia;
+    public long getSprzetIdTyp() {
+        return sprzetIdTyp;
     }
 
-    public void setTypUrzadzenia(long typUrzadzenia) {
-        this.typUrzadzenia = typUrzadzenia;
+    public void setSprzetIdTyp(long sprzetIdTyp) {
+        this.sprzetIdTyp = sprzetIdTyp;
     }
 }
