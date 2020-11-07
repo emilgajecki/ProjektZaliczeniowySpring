@@ -6,6 +6,7 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.RolaMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -19,7 +20,7 @@ public class RolaService {
 
     public List<RolaListItemDto> getall() {
 
-        Iterable<RolaPracownikaEntity> rola = rolaRepository.findAll();
+        Iterable<RolaPracownikaEntity> rola = rolaRepository.findAll(Sort.by(Sort.Direction.DESC,"idRole"));
         List<RolaListItemDto> dtos = RolaMapper.mapEntityToListItemDto(rola);
 
         return dtos;

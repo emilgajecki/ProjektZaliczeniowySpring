@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -38,7 +39,7 @@ public class DzialyController {
     }
 
     @RequestMapping(value = "/dzialy/add", method = RequestMethod.POST)
-    public String dodajDzial(@ModelAttribute("dzial") @Validated DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
+    public String dodajDzial(@ModelAttribute("dzial") @Valid DzialyDto dzialyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/newDzial";

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -51,7 +52,7 @@ public class PracownicyController {
     }
 
     @RequestMapping(value = "/pracownicy/add", method = RequestMethod.POST)
-    public String dodajPracownika(@ModelAttribute("pracownicy") @Validated PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
+    public String dodajPracownika(@ModelAttribute("pracownicy") @Valid PracownicyDto pracownicyDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "newUser";

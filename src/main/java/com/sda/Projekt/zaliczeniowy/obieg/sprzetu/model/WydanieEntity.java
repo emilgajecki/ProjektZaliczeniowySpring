@@ -1,5 +1,7 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
+import net.bytebuddy.implementation.bind.annotation.Default;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -18,13 +20,33 @@ public class WydanieEntity {
     @JoinColumn(name= "sprzetID")
     private SprzetEntity sprzetId;
 
-
+    private String uwagi;
 
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
+    @Temporal(TemporalType.DATE)
+    private Date dataZwrotu;
+
+    @Column(columnDefinition = "bit default 0")
+    private boolean isActive;
+
+
     public WydanieEntity(){
 
+    }
+
+    public WydanieEntity(long id, String uwagi) {
+        this.id = id;
+        this.uwagi = uwagi;
+    }
+
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
     }
 
     public WydanieEntity(int id) {
@@ -61,5 +83,21 @@ public class WydanieEntity {
 
     public void setPracId(PracownicyEntity pracID) {
         this.pracId = pracID;
+    }
+
+    public Date getDataZwrotu() {
+        return dataZwrotu;
+    }
+
+    public void setDataZwrotu(Date dataZwrotu) {
+        this.dataZwrotu = dataZwrotu;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

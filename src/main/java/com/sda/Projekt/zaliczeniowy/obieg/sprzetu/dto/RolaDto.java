@@ -1,8 +1,12 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto;
 
+
+import javax.validation.constraints.NotNull;
+
 public class RolaDto {
 
     private long id;
+    @NotNull
     private String role;
     private String createDate;
 

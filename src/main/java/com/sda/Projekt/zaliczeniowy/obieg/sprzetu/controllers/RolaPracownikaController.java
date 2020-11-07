@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -39,7 +40,7 @@ public class RolaPracownikaController {
     }
 
     @RequestMapping(value = "/rola/add", method = RequestMethod.POST)
-    public String dodajRole(@ModelAttribute("rola") @Validated RolaDto rolaDto, BindingResult bindingResult, Model model) {
+    public String dodajRole(@ModelAttribute("rola") @Valid RolaDto rolaDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/newStanowisko";

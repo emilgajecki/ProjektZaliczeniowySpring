@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="thymeleaf.org">
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
@@ -50,7 +51,7 @@
 
                     <option th:each="pracownicy : ${pracownicyList}"
                             th:value="${pracownicy.id}"
-                            th:text="${pracownicy.name+pracownicy.lastName}"></option>
+                            th:text="${pracownicy.name+' '+pracownicy.lastName}"></option>
                 </select>
             </div>
             <br>
@@ -61,8 +62,13 @@
 
                     <option th:each="sprzet : ${sprzetList}"
                             th:value="${sprzet.id}"
-                            th:text="${sprzet.producent+sprzet.model}"></option>
+                            th:text="${sprzet.producent+' '+sprzet.model}"></option>
                 </select>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="uwagi">Uwagi</label>
+                <input class="form-control" type="text" name="uwagi" id="uwagi">
             </div>
 
             <div class="form-group">

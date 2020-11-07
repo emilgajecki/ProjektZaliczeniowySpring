@@ -43,6 +43,7 @@ public class WydanieService {
             SprzetEntity sprzetEntity =sprzetRepository.getById(wydanieDto.getSprzetId());
             entity.setPracId(pracownicyEntity);
             entity.setSprzetId(sprzetEntity);
+            entity.setActive(true);
             wydanieRepository.save(entity);
         } catch (ParseException e) {
             e.printStackTrace();

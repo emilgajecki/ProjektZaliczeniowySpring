@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-size: 20px;
-}
+    }
 
 .menu-bar {
     background-color: #f06927;
@@ -101,7 +101,7 @@
 }
 .form-control{
     width: 100%;
-    border-bottom: #f06927;
+    padding: 7px;
 }
 select{
     width: 100%;

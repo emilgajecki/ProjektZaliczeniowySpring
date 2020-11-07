@@ -5,6 +5,7 @@ public class WydanieDto {
     private long id;
     private long pracId;
     private long sprzetId;
+    private String uwagi;
     private String createDate;
 
     public long getId() {
@@ -37,5 +38,13 @@ public class WydanieDto {
 
     public void setSprzetId(long sprzetId) {
         this.sprzetId = sprzetId;
+    }
+
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
     }
 }

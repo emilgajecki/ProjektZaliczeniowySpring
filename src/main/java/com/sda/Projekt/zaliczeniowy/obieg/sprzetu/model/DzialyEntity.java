@@ -10,6 +10,8 @@ public class DzialyEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+
     private String nameDepartment;
 
     @OneToMany(mappedBy = "pracIdDepartment")

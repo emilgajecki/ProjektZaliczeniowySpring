@@ -1,8 +1,11 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class DzialyDto {
 
     private long id;
+    @NotNull
     private String nameDepartment;
     private String createDate;
 

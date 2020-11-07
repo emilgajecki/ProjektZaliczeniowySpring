@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -43,7 +44,7 @@ public class SprzetController {
     }
 
     @RequestMapping(value = "/sprzet/add", method = RequestMethod.POST)
-    public String dodajSprzet(@ModelAttribute("sprzet") @Validated SprzetDto sprzetDto, BindingResult bindingResult, Model model) {
+    public String dodajSprzet(@ModelAttribute("sprzet") @Valid SprzetDto sprzetDto, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "/newDevice";

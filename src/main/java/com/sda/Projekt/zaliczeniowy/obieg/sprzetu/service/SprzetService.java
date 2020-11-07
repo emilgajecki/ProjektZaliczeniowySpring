@@ -25,7 +25,7 @@ public class SprzetService {
 
     public List<SprzetListItemDto> getall() {
 
-        Iterable<SprzetEntity> sprzety = sprzetRepository.findAll();
+        Iterable<SprzetEntity> sprzety = sprzetRepository.getActiveDevice();
         List<SprzetListItemDto> dtos = SprzetMapper.mapEntityToListItemDto(sprzety);
 
         return dtos;

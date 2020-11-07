@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="thymeleaf.org">
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
@@ -46,20 +47,55 @@
                 <thead>
                 <th scope="col">Imię pracownika</th>
                 <th scope="col">Nazwisko pracownika</th>
-                <th scope="col">Sprzęt</th>
+                <th scope="col">Producent</th>
+                <th scope="col">Model</th>
+                <th scope="col">SN</th>
+                <th scope="col">Uwagi</th>
                 <th scope="col">Data Wyadania</th>
+                <th scope="col">Data Zwrotu</th>
+                <th scope="col">Zwróć sprzęt</th>
                 </thead>
                 <tbody>
                 <tr class="wartosc" th:each="wydanie : ${wydanieList}">
                     <td th:text="${wydanie.imiePracownika}"/>
                     <td th:text="${wydanie.nazwaPracownika}"/>
-                    <td th:text="${wydanie.producnetSprzetu+wydanie.modelSprzetu}"/>
+                    <td th:text="${wydanie.producnetSprzetu}"/>
+                    <td th:text="${wydanie.modelSprzetu}"/>
+                    <td th:text="${wydanie.serialNumber}"/>
+                    <td th:text="${wydanie.uwagi}"/>
                     <td th:text="${wydanie.createDate}"/>
+                    <td th:text="${wydanie.dataZwrotu}"/>
+                    <TD>
+
+                        <input type="button" id="zwrotButton" value="Zwróć sprzę"/>
+                        <!--                        <FORM ACTION="newZwrot.html" METHOD="POST">-->
+                        <!--                            <INPUT TYPE="submit" VALUE="Zwróć sprzęt">-->
+                        <!--                        </FORM>-->
+                        <input type="hidden" th:value="${wydanie.id}">
+                    </TD>
+
                 </tr>
+
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 </body>
+<script src="webjars/jquery/3.5.0/jquery.min.js"></script>
+
+<script type="application/javascript">
+    $("#zwrotButton").click(function () {
+        // pobrany button przez this/parent - elemtn nadrzedn - szukamy hidden
+        var id=$(this).parent().find('input[type="hidden"]').val();
+        $.post("/wydanie/del/"+id)
+            .done(function (result){
+
+        })
+        .fail(function (){
+            alert ("Coś poszło nie tak")
+        })
+    });
+</script>
+
 </html>

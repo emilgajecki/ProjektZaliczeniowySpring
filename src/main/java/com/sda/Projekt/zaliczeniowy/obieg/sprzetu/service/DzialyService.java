@@ -6,6 +6,7 @@ import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.DzialyMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -19,7 +20,8 @@ public class DzialyService {
 
     public List<DzialyListItemDto> getall() {
 
-        Iterable<DzialyEntity> dzialy = dzialyRepository.findAll();
+        //sortowanie po id (entuity)
+        Iterable<DzialyEntity> dzialy = dzialyRepository.findAll(Sort.by(Sort.Direction.DESC,"id"));
         List<DzialyListItemDto> dtos = DzialyMapper.mapEntityToListItemDto(dzialy);
 
         return dtos;
