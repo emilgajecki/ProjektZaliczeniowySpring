@@ -15,8 +15,6 @@ public interface SprzetRepository extends JpaRepository<SprzetEntity, Long> {
 
     SprzetEntity getById(long id);
 
-
-
     @Query(value="  select * from  sprzet s where not exists (select 1 from wydanie w where w.sprzetid =s.id and w.is_active = 1)",nativeQuery = true)
     List<SprzetEntity> getActiveDevice();
 }
