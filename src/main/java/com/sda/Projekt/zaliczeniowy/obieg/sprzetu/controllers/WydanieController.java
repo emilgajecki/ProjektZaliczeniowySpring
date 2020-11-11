@@ -70,8 +70,8 @@ public class WydanieController {
     @RequestMapping(value = "/wydanie/del/{id}", method = RequestMethod.POST)
     public String oddajSprzet(@PathVariable("id") Long id) {
 
-
         WydanieEntity entity =  wydanieRepository.getById(id);
+        entity.setActive(false);
         entity.setDataZwrotu(new Date());
         wydanieRepository.save(entity);
 

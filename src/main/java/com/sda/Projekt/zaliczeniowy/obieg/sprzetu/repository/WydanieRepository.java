@@ -1,5 +1,6 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository;
 
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.SprzetEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.TypUrzadzeniaEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.WydanieEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,5 +13,6 @@ import java.util.List;
 public interface WydanieRepository extends JpaRepository<WydanieEntity, Long> {
 
     WydanieEntity getById(long id);
+
 
 }
