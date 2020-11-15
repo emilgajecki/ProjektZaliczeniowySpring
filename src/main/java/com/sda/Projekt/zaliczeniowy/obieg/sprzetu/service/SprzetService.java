@@ -31,6 +31,15 @@ public class SprzetService {
         return dtos;
     }
 
+    public List<SprzetListItemDto> getaAllDevice() {
+
+        Iterable<SprzetEntity> sprzety = sprzetRepository.findAll();
+        List<SprzetListItemDto> dtos = SprzetMapper.mapEntityToListItemDto(sprzety);
+
+        return dtos;
+    }
+
+
     public void save(SprzetDto sprzetDto) {
 
         try {

@@ -71,8 +71,8 @@ public class WydanieController {
     public String oddajSprzet(@PathVariable("id") Long id) {
 
         WydanieEntity entity =  wydanieRepository.getById(id);
-        entity.setActive(false);
         entity.setDataZwrotu(new Date());
+        entity.setActive(false);
         wydanieRepository.save(entity);
 
 

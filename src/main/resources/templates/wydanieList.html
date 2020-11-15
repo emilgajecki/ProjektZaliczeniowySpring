@@ -67,7 +67,7 @@
                     <td th:text="${wydanie.dataZwrotu}"/>
                     <TD>
 
-                        <input type="button" id="zwrotButton" value="Zwróć sprzęt"/>
+                        <input type="button" class="zwrotButton" value="Zwróć sprzęt"/>
                         <!--                        <FORM ACTION="newZwrot.html" METHOD="POST">-->
                         <!--                            <INPUT TYPE="submit" VALUE="Zwróć sprzęt">-->
                         <!--                        </FORM>-->
@@ -85,12 +85,12 @@
 <script src="webjars/jquery/3.5.0/jquery.min.js"></script>
 
 <script type="application/javascript">
-    $("#zwrotButton").click(function () {
+    $(".zwrotButton").click(function () {
         // pobrany button przez this/parent - elemtn nadrzedn - szukamy hidden
         var id=$(this).parent().find('input[type="hidden"]').val();
         $.post("/wydanie/del/"+id)
             .done(function (result){
-
+                window.location.reload(true);
         })
         .fail(function (){
             alert ("Coś poszło nie tak")

@@ -29,7 +29,7 @@ public class SprzetController {
     @RequestMapping(value = "/sprzetList", method = RequestMethod.GET)
     public String sprzetList(Model model) {
 
-        model.addAttribute("sprzetList", sprzetService.getall());
+        model.addAttribute("sprzetList", sprzetService.getaAllDevice());
 
         return "/sprzetList";
     }
