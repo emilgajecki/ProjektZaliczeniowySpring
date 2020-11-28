@@ -8,6 +8,16 @@ public class SprzetListItemDto {
     private String typUrzadzenia;
     private String serialNumber;
     private String createDate;
+    private String uwagi;
+
+
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
+    }
 
     public String getCreateDate() {
         return createDate;

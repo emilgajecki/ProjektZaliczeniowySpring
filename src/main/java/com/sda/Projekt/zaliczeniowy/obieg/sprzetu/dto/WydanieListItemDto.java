@@ -36,6 +36,7 @@ public class WydanieListItemDto {
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
+
     public String getImiePracownika() {
         return imiePracownika;
     }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
@@ -40,41 +41,49 @@
     </ul>
 </div>
 <div class="container">
-<div class="row">
-    <div class="col">
-        <table class="table">
-            <thead>
-            <th class="name">
-                Imie Pracownika
-            </th>
-            <th class="name">
-                Nazwisko Pracownika
-            </th>
-            <th class="name">
-                Stanowisko Pracownika
-            </th>
-            <th class="name">
-                Dział Pracownika
-            </th>
-            <th class="name">
-                Data utworzenia
-            </th>
-            </thead>
-            <tr class="wartosc" th:each="pracownicy : ${pracownicyList}">
-
-                <td th:text="${pracownicy.name}"/>
-
-                <td th:text="${pracownicy.lastName}"/>
-
-                <td th:text="${pracownicy.rolaPracownika}"/>
-
-                <td th:text="${pracownicy.dzialPracownika}"/>
-
-                <td th:text="${pracownicy.createDate}"/>
-            </tr>
-        </table>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <th scope="col">Imie Pracownika</th>
+                <th scope="col">Nazwisko Pracownika</th>
+                <th scope="col">Stanowisko Pracownika</th>
+                <th scope="col">Dział Pracownika</th>
+                <th scope="col">Data utworzenia</th>
+                <th scope="col">Data zablokowania</th>
+                <th scope="col">Zablokuj pracownika</th>
+                </thead>
+                <tr class="wartosc" th:each="pracownicy : ${pracownicyList}">
+                    <td th:text="${pracownicy.name}"/>
+                    <td th:text="${pracownicy.lastName}"/>
+                    <td th:text="${pracownicy.rolaPracownika}"/>
+                    <td th:text="${pracownicy.dzialPracownika}"/>
+                    <td th:text="${pracownicy.createDate}"/>
+                    <td th:text="${pracownicy.dataZablokowania}"/>
+                    <td>
+                        <input type="button" class="zablokujPraconika" value="Zablokuj pracownika"/>
+                        <input type="hidden" th:value="${pracownicy.id}">
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
-</div>
 </body>
+
+<script src="webjars/jquery/3.5.0/jquery.min.js"></script>
+
+<script type="application/javascript">
+    $(".zablokujPraconika").click(function () {
+        // pobrany button przez this/parent - elemtn nadrzedn - szukamy hidden
+        var id=$(this).parent().find('input[type="hidden"]').val();
+        $.post("/pracownicy/del/"+id)
+            .done(function (result){
+                window.location.reload(true);
+            })
+            .fail(function (){
+                alert ("Coś poszło nie tak")
+            })
+    });
+</script>
 </html>

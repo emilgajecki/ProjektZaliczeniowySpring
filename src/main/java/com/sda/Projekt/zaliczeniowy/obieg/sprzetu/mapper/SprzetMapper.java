@@ -24,6 +24,7 @@ public class SprzetMapper {
             dto.setProducent(entity.getProducent());
             dto.setModel(entity.getModel());
             dto.setSerialNumber(entity.getSerialNumber());
+            dto.setUwagi(entity.getUwagi());
             dto.setTypUrzadzenia(entity.getSprzetIdTyp().getTypUrządzenia());
             dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
 
@@ -40,6 +41,7 @@ public class SprzetMapper {
         entity.setProducent(dto.getProducent());
         entity.setModel(dto.getModel());
         entity.setSerialNumber(dto.getSerialNumber());
+        entity.setUwagi(dto.getUwagi());
         entity.setCreateDate(new SimpleDateFormat(DATE_FORMAT).parse(dto.getCreateDate()));
 
         return entity;

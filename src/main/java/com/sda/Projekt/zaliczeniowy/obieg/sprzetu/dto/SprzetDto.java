@@ -8,7 +8,15 @@ public class SprzetDto {
     private String serialNumber;
     private long sprzetIdTyp;
     private String createDate;
+    private String uwagi;
 
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
+    }
 
     public String getCreateDate() {
         return createDate;

@@ -26,8 +26,11 @@ public class PracownicyMapper {
             dto.setRolaPracownika(entity.getPracIdRole().getRole());
             dto.setDzialPracownika(entity.getPracIdDepartment().getNameDepartment());
             dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
-
+            if(entity.getDataZablokowania()!=null){
+                dto.setDataZablokowania(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataZablokowania()));
+            }
             result.add(dto);
+
         }
 
         return result;

@@ -12,11 +12,9 @@
     <artifactId>Projekt-zaliczeniowy-obieg-sprzetu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Projekt-zaliczeniowy-obieg-sprzetu</name>
-
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,8 +69,6 @@
             <version>2.0.0.Final</version>
         </dependency>
     </dependencies>
-
-
     <build>
         <plugins>
             <plugin>

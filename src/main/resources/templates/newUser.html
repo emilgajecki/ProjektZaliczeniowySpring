@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
@@ -55,6 +56,7 @@
                     </div>
                     <br>
                     <div class="form-group">
+
                         <label for="pracIdRole">Wybierz stanowisko pracownika</label>
                         <br>
                         <select class="wartosc" name="pracIdRole" id="pracIdRole">
@@ -68,8 +70,6 @@
                         <label for="pracIdDepartment">Wybierz dział pracownika</label>
                         <br>
                         <select class="wartosc" name="pracIdDepartment" id="pracIdDepartment">
-
-
                             <option th:each="dzial : ${dzialList}"
                                     th:value="${dzial.id}"
                                     th:text="${dzial.nameDepartment}"></option>

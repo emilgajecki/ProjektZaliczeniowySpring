@@ -13,6 +13,7 @@ public class SprzetEntity {
     private String producent;
     private String model;
     private String serialNumber;
+    private String uwagi;
 
     @ManyToOne
     @JoinColumn(name = "sprzetID")
@@ -88,5 +89,13 @@ public class SprzetEntity {
 
     public void setWydanie(List<WydanieEntity> wydanie) {
         this.wydanie = wydanie;
+    }
+
+    public String getUwagi() {
+        return uwagi;
+    }
+
+    public void setUwagi(String uwagi) {
+        this.uwagi = uwagi;
     }
 }

@@ -26,8 +26,31 @@ public class PracownicyEntity {
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
+    @Temporal(TemporalType.DATE)
+    private Date dataZablokowania;
+
+    @Column(columnDefinition = "bit default 0")
+    private boolean isActive;
+
+    public Date getDataZablokowania() {
+        return dataZablokowania;
+    }
+
+    public void setDataZablokowania(Date dataZwrotu) {
+        this.dataZablokowania = dataZwrotu;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
     public PracownicyEntity(){
     }
+
     public PracownicyEntity(String name, String lastName) {
         this.name = name;
         this.lastName = lastName;
@@ -41,22 +64,25 @@ public class PracownicyEntity {
         this.createDate = createDate;
     }
 
-
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
     public void setName(String name) {
         this.name = name;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

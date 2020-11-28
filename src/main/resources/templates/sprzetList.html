@@ -58,7 +58,13 @@
                 Typ urządzenia
             </th>
             <th class="name">
+                Uwagi
+            </th>
+            <th class="name">
                 Data utworzenia
+            </th>
+            <th class="name">
+                Dodaj uwagi
             </th>
             </thead>
             <tr class="wartosc" th:each="sprzet : ${sprzetList}">
@@ -71,10 +77,13 @@
 
                 <td th:text="${sprzet.typUrzadzenia}"/>
 
+                <td th:text="${sprzet.uwagi}"/>
+
                 <td th:text="${sprzet.createDate}"/>
             </tr>
         </table>
     </div>
+</div>
 </div>
 </body>
 </html>

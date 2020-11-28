@@ -44,6 +44,7 @@ public class PracownicyService {
             DzialyEntity dzialyEntity = dzialyRepository.getById(pracownicyDto.getPracIdDepartment());
             entity.setPracIdRole(rolaPracownika);
             entity.setPracIdDepartment(dzialyEntity);
+            entity.setActive(true);
             pracownicyRepository.save(entity);
         } catch (ParseException e) {
             e.printStackTrace();

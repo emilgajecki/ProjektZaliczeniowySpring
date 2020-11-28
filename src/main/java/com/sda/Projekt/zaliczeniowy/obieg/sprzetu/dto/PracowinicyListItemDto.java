@@ -8,6 +8,15 @@ public class PracowinicyListItemDto {
     private String rolaPracownika;
     private String dzialPracownika;
     private String createDate;
+    private String dataZablokowania;
+
+    public String getDataZablokowania() {
+        return dataZablokowania;
+    }
+
+    public void setDataZablokowania(String dataZablokowania) {
+        this.dataZablokowania = dataZablokowania;
+    }
 
     public String getCreateDate() {
         return createDate;
