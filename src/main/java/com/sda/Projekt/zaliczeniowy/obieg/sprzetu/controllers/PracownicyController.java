@@ -39,7 +39,7 @@ public class PracownicyController {
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
     public String pracownicyList(Model model) {
 
-        model.addAttribute("pracownicyList", pracownicyService.getall());
+        model.addAttribute("pracownicyList", pracownicyService.getAllUsers());
 
         return "/pracownicyList";
     }

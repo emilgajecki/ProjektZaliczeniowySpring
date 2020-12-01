@@ -2,10 +2,13 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service;
 
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracowinicyListItemDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.SprzetListItemDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.SprzetMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.DzialyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.RolaPracownikaEntity;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.SprzetEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.DzialyRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.RolaPracownikaRepository;
@@ -29,6 +32,14 @@ public class PracownicyService {
 
 
     public List<PracowinicyListItemDto> getall() {
+
+        Iterable<PracownicyEntity> pracownicy = pracownicyRepository.getActiveUser();
+        List<PracowinicyListItemDto> dtos = PracownicyMapper.mapEntityToListItemDto(pracownicy);
+
+        return dtos;
+    }
+
+    public List<PracowinicyListItemDto> getAllUsers() {
 
         Iterable<PracownicyEntity> pracownicy = pracownicyRepository.findAll();
         List<PracowinicyListItemDto> dtos = PracownicyMapper.mapEntityToListItemDto(pracownicy);
