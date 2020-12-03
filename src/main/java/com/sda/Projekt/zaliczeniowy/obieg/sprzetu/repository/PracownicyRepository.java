@@ -13,6 +13,6 @@ public interface PracownicyRepository extends JpaRepository<PracownicyEntity, Lo
 
     PracownicyEntity getById(long id);
 
-    @Query(value="  select * from  pracownicy p where not exists (select 1 from wydanie w where w.pracId =p.id and w.is_active = 1)",nativeQuery = true)
+    @Query(value="  select * from  pracownicy p where is_active = 1",nativeQuery = true)
     List<PracownicyEntity> getActiveUser();
 }
