@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<div class="menu-bar">
+    <ul>
+        <li><a href="#"><i class="fa fa-users"></i>Pracownicy</a>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="/pracownicy/add">Dodaj pracownika</a></li>
+                    <li><a href="/pracownicyList">Pokaż pracowników</a></li>
+                    <li><a href="/dzialy/add">Dodaj dzial</a></li>
+                    <li><a href="/dzialList">Pokaż dzial</a></li>
+                    <li><a href="/rola/add">Dodaj stanowisko</a></li>
+                    <li><a href="/rolaList">Pokaż stanoiska</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#"><i class="fa fa-desktop"></i>Sprzęt</a>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="/sprzet/add">Dodaj sprzęt</a></li>
+                    <li><a href="/sprzetList">Pokaż sprzęt</a></li>
+                    <li><a href="/typ/add">Dodaj typ urządzenia</a></li>
+                    <li><a href="/typList">Pokaż typy urządzeń</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#"><i class="fa fa-clone"></i>Wydanie sprzętu</a>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="/wydanieList">Pokaż wydanie</a></li>
+                    <li><a href="/wydanie/add">Wydaj sprzęt</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <th scope="col">Producent</th>
+                <th scope="col">Model</th>
+                <th scope="col">SN</th>
+                <th scope="col">Uwagi</th>
+                <th scope="col">Data Wyadania</th>
+                </thead>
+                <tbody>
+                <tr class="wartosc" th:each="wydanie : ${wydanieListSprzet}">
+                    <td th:text="${wydanie.producnetSprzetu}"/>
+                    <td th:text="${wydanie.modelSprzetu}"/>
+                    <td th:text="${wydanie.serialNumber}"/>
+                    <td th:text="${wydanie.uwagi}"/>
+                    <td th:text="${wydanie.createDate}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

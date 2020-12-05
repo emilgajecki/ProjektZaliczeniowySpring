@@ -1,6 +1,10 @@
 package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +14,7 @@ public class RolaPracownikaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idRole;
+    @NotNull
     private String role;
 
     @OneToMany(mappedBy = "pracIdRole")

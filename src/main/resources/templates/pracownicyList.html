@@ -51,6 +51,7 @@
                 <th scope="col">Dział Pracownika</th>
                 <th scope="col">Data utworzenia</th>
                 <th scope="col">Data zablokowania</th>
+                <th scope="col">Pokaż sprzęt pracownika</th>
                 <th scope="col">Zablokuj pracownika</th>
                 </thead>
                 <tr class="wartosc" th:each="pracownicy : ${pracownicyList}">
@@ -60,6 +61,10 @@
                     <td th:text="${pracownicy.dzialPracownika}"/>
                     <td th:text="${pracownicy.createDate}"/>
                     <td th:text="${pracownicy.dataZablokowania}"/>
+                    <td>
+                        <input type="button" class="pokazSprzetUzytkownika" value="Pokaż sprzęt pracownika"/>
+                        <input type="hidden" th:value="${pracownicy.id}">
+                    </td>
                     <td>
                         <input type="button" class="zablokujPraconika" value="Zablokuj pracownika"/>
                         <input type="hidden" th:value="${pracownicy.id}">
@@ -76,13 +81,24 @@
 <script type="application/javascript">
     $(".zablokujPraconika").click(function () {
         // pobrany button przez this/parent - elemtn nadrzedn - szukamy hidden
-        var id=$(this).parent().find('input[type="hidden"]').val();
-        $.post("/pracownicy/del/"+id)
-            .done(function (result){
+        var id = $(this).parent().find('input[type="hidden"]').val();
+        $.post("/pracownicy/del/" + id)
+            .done(function (result) {
                 window.location.reload(true);
             })
-            .fail(function (){
-                alert ("Coś poszło nie tak")
+            .fail(function () {
+                alert("Coś poszło nie tak")
+            })
+    });
+
+    $(".pokazSprzetUzytkownika").click(function(){
+        var id = $(this).parent().find('input[type="hidden"]').val();
+        $.post("/wydanieListSprzet/"+id)
+            .done(function (result) {
+                window.location = "/wydanieListSprzet";
+            })
+            .fail(function () {
+                alert("Coś poszło nie tak")
             })
     });
 </script>

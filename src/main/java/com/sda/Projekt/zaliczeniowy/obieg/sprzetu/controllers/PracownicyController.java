@@ -3,7 +3,11 @@ package com.sda.Projekt.zaliczeniowy.obieg.sprzetu.controllers;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.dto.PracownicyDto;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.mapper.PracownicyMapper;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.PracownicyEntity;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.SprzetEntity;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.model.WydanieEntity;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.PracownicyRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.SprzetRepository;
+import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.repository.WydanieRepository;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.DzialyService;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.PracownicyService;
 import com.sda.Projekt.zaliczeniowy.obieg.sprzetu.service.RolaService;
@@ -19,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class PracownicyController {
@@ -34,6 +39,9 @@ public class PracownicyController {
 
     @Autowired
     private PracownicyRepository pracownicyRepository;
+
+    @Autowired
+    private WydanieRepository wydanieRepository;
 
 
     @RequestMapping(value = "/pracownicyList", method = RequestMethod.GET)
@@ -79,4 +87,15 @@ public class PracownicyController {
 
         return "redirect:/pracownicyList";
     }
+
+    // dodać metode obslugujaca sprzet tylko danego pracownika
+
+    @RequestMapping(value = "/wydanieListSprzet/{id}", method = RequestMethod.POST)
+    public String pokazSprzetPracownika(long id) {
+
+         WydanieEntity entity = (WydanieEntity) wydanieRepository.getPracownikDevice(id);
+
+        return "redirect:/wydanieListSprzet";
+    }
+
 }
